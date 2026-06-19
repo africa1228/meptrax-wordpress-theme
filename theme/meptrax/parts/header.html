@@ -1,0 +1,31 @@
+<!-- wp:group {"tagName":"header","className":"meptrax-header","layout":{"type":"constrained"}} -->
+<header class="wp-block-group meptrax-header">
+	<!-- wp:group {"layout":{"type":"flex","flexWrap":"wrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+	<div class="wp-block-group">
+		<!-- wp:group {"layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"},"style":{"spacing":{"blockGap":"var:preset|spacing|40"}}} -->
+		<div class="wp-block-group">
+			<!-- wp:site-logo {"width":48} /-->
+			<!-- wp:site-title {"level":0} /-->
+		</div>
+		<!-- /wp:group -->
+
+		<!-- wp:navigation {"className":"meptrax-nav","layout":{"type":"flex","justifyContent":"right"},"overlayMenu":"never"} -->
+			<!-- wp:navigation-link {"label":"Product","url":"/product/","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Pricing","url":"/pricing/","kind":"custom","isTopLevelLink":true} /-->
+			<!-- wp:navigation-link {"label":"Support","url":"/support/","kind":"custom","isTopLevelLink":true} /-->
+		<!-- /wp:navigation -->
+
+		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"right"}} -->
+		<div class="wp-block-buttons">
+			<!-- wp:button {"className":"is-style-outline meptrax-btn-outline","url":"{{MEPTRAX_APP_LOGIN_URL}}"} -->
+			<div class="wp-block-button is-style-outline meptrax-btn-outline"><a class="wp-block-button__link wp-element-button" href="{{MEPTRAX_APP_LOGIN_URL}}">Log in</a></div>
+			<!-- /wp:button -->
+			<!-- wp:button {"url":"{{MEPTRAX_APP_SIGNUP_URL}}"} -->
+			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button" href="{{MEPTRAX_APP_SIGNUP_URL}}">Start free</a></div>
+			<!-- /wp:button -->
+		</div>
+		<!-- /wp:buttons -->
+	</div>
+	<!-- /wp:group -->
+</header>
+<!-- /wp:group -->

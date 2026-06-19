@@ -1,0 +1,72 @@
+/* MEPtrax marketing theme — supplemental styles */
+
+.meptrax-header {
+  background-color: var(--wp--preset--color--navy);
+  color: var(--wp--preset--color--white);
+}
+
+.meptrax-header a {
+  color: var(--wp--preset--color--white);
+  text-decoration: none;
+}
+
+.meptrax-header .meptrax-nav a:hover {
+  color: var(--wp--preset--color--amber);
+}
+
+.meptrax-btn-outline {
+  border: 2px solid var(--wp--preset--color--white) !important;
+  background: transparent !important;
+  color: var(--wp--preset--color--white) !important;
+}
+
+.meptrax-btn-outline:hover {
+  background: var(--wp--preset--color--white) !important;
+  color: var(--wp--preset--color--navy) !important;
+}
+
+.meptrax-notice {
+  border-left: 4px solid var(--wp--preset--color--amber);
+  background: var(--wp--preset--color--gray-100);
+  padding: var(--wp--preset--spacing--40);
+}
+
+.meptrax-donate-zone {
+  border: 2px dashed var(--wp--preset--color--gray-600);
+  padding: var(--wp--preset--spacing--50);
+  text-align: center;
+  border-radius: 8px;
+}
+
+.meptrax-footer {
+  background-color: var(--wp--preset--color--navy-light);
+  color: var(--wp--preset--color--gray-100);
+  padding-top: var(--wp--preset--spacing--60);
+  padding-bottom: var(--wp--preset--spacing--50);
+}
+
+.meptrax-footer a {
+  color: var(--wp--preset--color--gray-100);
+}
+
+.meptrax-footer a:hover {
+  color: var(--wp--preset--color--amber);
+}
+
+.meptrax-cta-band {
+  background: var(--wp--preset--color--navy);
+  color: var(--wp--preset--color--white);
+  padding: var(--wp--preset--spacing--70) var(--wp--preset--spacing--40);
+  text-align: center;
+}
+
+.meptrax-cta-band .wp-block-heading,
+.meptrax-cta-band p {
+  color: var(--wp--preset--color--white);
+}
+
+.meptrax-legal-page .wp-block-post-content {
+  max-width: 720px;
+  margin-left: auto;
+  margin-right: auto;
+}
