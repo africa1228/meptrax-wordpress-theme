@@ -7,7 +7,7 @@ The MEPtrax takeoff app lives in a separate repo (`TradulixPlanTakeoff`) at `app
 ## What this repo contains
 
 - `theme/meptrax/` — installable WordPress block theme (FSE)
-- Block patterns: hero, early-access notice, features, honesty list, CTA, optional donations
+- Block patterns: **Home Landing (Full)**, split hero, contractor features (Find / Mark / Track), donate, CTA, plus legacy patterns
 - GitHub Actions deploy to DreamHost `wp-content/themes/meptrax/`
 
 ## What WordPress admin owns (not in git)

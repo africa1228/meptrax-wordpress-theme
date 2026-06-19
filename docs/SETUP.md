@@ -26,11 +26,18 @@ If WordPress is installed in a different docroot, update `.github/workflows/depl
 
 1. WordPress admin → **Appearance → Themes**
 2. Activate **MEPtrax**
-3. **Appearance → Editor → Site Identity** → upload logo and site icon
+
+### Site identity
+
+1. **Settings → General** → Tagline: `FIND. MARK. TRACK.`
+2. **Appearance → Editor → Site Identity** → upload logo (icon + wordmark as in brand mockup)
 
 ## 4. Header navigation
 
-The header includes Product, Pricing, Support links. Confirm permalinks match your pages after creating content (see CONTENT_CHECKLIST.md).
+The header uses a split layout (white left, navy right) matching the hero mockup. Nav includes **Product** and **Support** dropdowns.
+
+- Confirm permalinks match your pages after creating content (see CONTENT_CHECKLIST.md).
+- Until you upload a custom logo, the bundled triangle mark (`logo-mark.svg`) displays automatically.
 
 ## 5. Create pages
 

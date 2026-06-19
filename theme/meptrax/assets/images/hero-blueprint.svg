@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 640" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="fade" x1="0%" y1="0%" x2="25%" y2="0%">
+      <stop offset="0%" stop-color="#001F3F" stop-opacity="0"/>
+      <stop offset="100%" stop-color="#001F3F" stop-opacity="1"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="640" fill="#001F3F"/>
+  <g stroke="#3d5a80" stroke-width="0.75" opacity="0.35">
+    <path d="M0 64h960M0 128h960M0 192h960M0 256h960M0 320h960M0 384h960M0 448h960M0 512h960M0 576h960"/>
+    <path d="M64 0v640M128 0v640M192 0v640M256 0v640M320 0v640M384 0v640M448 0v640M512 0v640M576 0v640M640 0v640M704 0v640M768 0v640M832 0v640M896 0v640"/>
+  </g>
+  <rect x="180" y="120" width="300" height="200" stroke="#5b7aa8" stroke-width="1.5" fill="none" opacity="0.55"/>
+  <rect x="168" y="108" width="324" height="224" stroke="#FF9F00" stroke-width="2.5" fill="rgba(255,159,0,0.08)" rx="2"/>
+  <text x="188" y="148" fill="#93c5fd" font-family="Inter, sans-serif" font-size="15" font-weight="600">PANEL A1</text>
+  <rect x="520" y="160" width="220" height="160" stroke="#5b7aa8" stroke-width="1.5" fill="none" opacity="0.45"/>
+  <path d="M560 220h140M560 260h100M560 300h120" stroke="#5b7aa8" stroke-width="1" opacity="0.5"/>
+  <circle cx="420" cy="320" r="32" stroke="#FF9F00" stroke-width="3" fill="rgba(255,159,0,0.12)"/>
+  <circle cx="420" cy="320" r="6" fill="#FF9F00"/>
+  <path d="M280 420 L420 360 L520 260 L640 340 L560 480 L380 460 Z" stroke="#5b7aa8" stroke-width="1.5" fill="rgba(91,122,168,0.08)" opacity="0.6"/>
+  <rect x="600" y="400" width="140" height="90" stroke="#FF9F00" stroke-width="2" fill="rgba(255,159,0,0.1)" rx="2"/>
+  <text x="618" y="430" fill="#93c5fd" font-family="Inter, sans-serif" font-size="13">L2-34</text>
+  <text x="618" y="458" fill="#93c5fd" font-family="Inter, sans-serif" font-size="13">LP-3A</text>
+  <line x1="420" y1="360" x2="520" y2="260" stroke="#FF9F00" stroke-width="2" opacity="0.75"/>
+  <line x1="640" y1="340" x2="670" y2="400" stroke="#FF9F00" stroke-width="2" opacity="0.6"/>
+  <rect x="0" y="0" width="240" height="640" fill="url(#fade)"/>
+</svg>

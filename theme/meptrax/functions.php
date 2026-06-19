@@ -32,13 +32,20 @@ function meptrax_setup() {
 add_action( 'after_setup_theme', 'meptrax_setup' );
 
 /**
- * Enqueue supplemental styles.
+ * Enqueue Inter and supplemental styles.
  */
 function meptrax_enqueue_assets() {
 	wp_enqueue_style(
+		'meptrax-inter',
+		'https://fonts.bunny.net/css?family=inter:400,500,600,700,800',
+		array(),
+		null
+	);
+
+	wp_enqueue_style(
 		'meptrax-theme',
 		get_template_directory_uri() . '/assets/css/theme.css',
-		array(),
+		array( 'meptrax-inter' ),
 		wp_get_theme()->get( 'Version' )
 	);
 }
@@ -87,3 +94,27 @@ function meptrax_register_block_patterns() {
 	}
 }
 add_action( 'init', 'meptrax_register_block_patterns' );
+
+/**
+ * Fallback logo when Site Identity logo is not uploaded yet.
+ *
+ * @param string $html Custom logo markup.
+ * @return string
+ */
+function meptrax_default_custom_logo( $html ) {
+	if ( has_custom_logo() ) {
+		return $html;
+	}
+
+	$logo_url = get_template_directory_uri() . '/assets/images/logo-mark.svg';
+	$home     = esc_url( home_url( '/' ) );
+	$name     = esc_attr( get_bloginfo( 'name', 'display' ) );
+
+	return sprintf(
+		'<a href="%1$s" class="custom-logo-link meptrax-default-logo" rel="home" aria-label="%2$s"><img src="%3$s" class="custom-logo" alt="" width="48" height="48" decoding="async" /></a>',
+		$home,
+		$name,
+		esc_url( $logo_url )
+	);
+}
+add_filter( 'get_custom_logo', 'meptrax_default_custom_logo' );

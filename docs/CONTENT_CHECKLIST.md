@@ -8,12 +8,10 @@ Copy source: [MEPTRAX_WORDPRESS_SITE_DRAFT.md](https://github.com/africa1228/Tra
 
 1. Create page **Home**
 2. **Settings → Reading** → set as static front page
-3. In Site Editor, insert MEPtrax patterns in order:
-   - Hero
-   - Early Access Notice
-   - Three Features
-   - Honesty List
-   - Help Keep the Power Flowing *(replace Stripe placeholder after plugin setup)*
+3. In Site Editor, insert pattern **Home Landing (Full)** — or individually:
+   - Hero Split
+   - Contractor Features
+   - Help Keep the Power Flowing
    - CTA Band
 
 ## Product (`/product/`)

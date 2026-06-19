@@ -1,68 +1,505 @@
-/* MEPtrax marketing theme — supplemental styles */
+/* MEPtrax marketing theme */
 
-.meptrax-header {
-  background-color: var(--wp--preset--color--navy);
-  color: var(--wp--preset--color--white);
+:root {
+  --meptrax-navy: #001f3f;
+  --meptrax-navy-deep: #0a192f;
+  --meptrax-orange: #ff9f00;
+  --meptrax-sky: #dbeafe;
+  --meptrax-blue: #2563eb;
+  --meptrax-radius: 8px;
+  --meptrax-split: 50%;
 }
 
-.meptrax-header a {
-  color: var(--wp--preset--color--white);
+body {
+  font-family: "Inter", "Segoe UI", -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ----- Header ----- */
+.meptrax-header {
+  background: linear-gradient(
+    90deg,
+    #fff 0%,
+    #fff var(--meptrax-split),
+    var(--meptrax-navy) var(--meptrax-split),
+    var(--meptrax-navy) 100%
+  );
+  border-bottom: none;
+  padding: 0.9rem 1.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.meptrax-header__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.meptrax-header__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  min-width: 0;
+  justify-self: start;
+}
+
+.meptrax-site-logo img,
+.meptrax-default-logo img {
+  display: block;
+  width: 48px;
+  height: 48px;
+}
+
+.meptrax-header__titles {
+  display: flex;
+  flex-direction: column;
+  gap: 0.05rem;
+}
+
+.meptrax-header__titles .wp-block-site-title {
+  margin: 0;
+  line-height: 1.05;
+  letter-spacing: 0.04em;
+}
+
+.meptrax-header__titles .wp-block-site-title a {
+  color: var(--meptrax-navy);
   text-decoration: none;
 }
 
-.meptrax-header .meptrax-nav a:hover {
-  color: var(--wp--preset--color--amber);
+.meptrax-header__titles .wp-block-site-tagline {
+  margin: 0;
+  line-height: 1.2;
+  color: #64748b;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
-.meptrax-btn-outline {
-  border: 2px solid var(--wp--preset--color--white) !important;
+.meptrax-header__nav {
+  justify-self: center;
+}
+
+.meptrax-nav .wp-block-navigation-item__content {
+  color: var(--meptrax-navy);
+  font-weight: 500;
+  font-size: 0.92rem;
+  padding: 0.35rem 0.5rem;
+}
+
+.meptrax-nav .wp-block-navigation-item__content:hover {
+  color: var(--meptrax-orange);
+}
+
+.meptrax-nav .wp-block-navigation-submenu__toggle,
+.meptrax-nav .wp-block-navigation__submenu-icon {
+  color: var(--meptrax-navy);
+}
+
+.meptrax-header__buttons {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: 0.6rem;
+  justify-self: end;
+}
+
+.meptrax-header__buttons .wp-block-button {
+  margin: 0;
+}
+
+.meptrax-btn-outline-header .wp-block-button__link,
+.meptrax-btn-outline-navy .wp-block-button__link {
+  border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
   background: transparent !important;
-  color: var(--wp--preset--color--white) !important;
+  color: #fff !important;
+  border-radius: var(--meptrax-radius) !important;
+  padding: 0.55rem 1.15rem !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
 }
 
-.meptrax-btn-outline:hover {
-  background: var(--wp--preset--color--white) !important;
-  color: var(--wp--preset--color--navy) !important;
+.meptrax-btn-outline-header .wp-block-button__link:hover {
+  background: rgba(255, 255, 255, 0.12) !important;
+  color: #fff !important;
 }
 
+.meptrax-btn-primary .wp-block-button__link {
+  background: var(--meptrax-orange) !important;
+  color: #fff !important;
+  border: none !important;
+  border-radius: var(--meptrax-radius) !important;
+  padding: 0.55rem 1.15rem !important;
+  font-size: 0.9rem !important;
+  font-weight: 600 !important;
+  box-shadow: 0 1px 2px rgba(0, 31, 63, 0.08);
+}
+
+.meptrax-btn-primary .wp-block-button__link:hover {
+  background: #e68a00 !important;
+}
+
+.meptrax-btn-lg .wp-block-button__link {
+  padding: 0.85rem 1.65rem !important;
+  font-size: 1rem !important;
+}
+
+/* ----- Split hero ----- */
+.meptrax-hero-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 560px;
+  max-width: 100%;
+  overflow: hidden;
+  margin-top: -1px;
+}
+
+.meptrax-hero-split__content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 2rem 2rem 4rem max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem));
+  background: #fff;
+  position: relative;
+  z-index: 2;
+}
+
+.meptrax-hero-split__content::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -80px;
+  width: 160px;
+  height: 100%;
+  background: linear-gradient(90deg, #fff 0%, rgba(255, 255, 255, 0) 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.meptrax-hero-split__content > * {
+  position: relative;
+  z-index: 2;
+}
+
+.meptrax-hero-split__visual {
+  background-color: var(--meptrax-navy);
+  background-image: url("../images/hero-blueprint.svg");
+  background-size: cover;
+  background-position: center left;
+  min-height: 360px;
+  position: relative;
+}
+
+.meptrax-hero-split__visual::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(0, 31, 63, 0.85) 0%, transparent 18%);
+  pointer-events: none;
+}
+
+.meptrax-hero-badge {
+  color: var(--meptrax-orange);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0 0 1.1rem;
+}
+
+.meptrax-hero-split__content h1 {
+  font-size: clamp(2.15rem, 4.2vw, 3.15rem);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+  color: var(--meptrax-navy);
+  margin: 0 0 1.25rem;
+  max-width: 16ch;
+}
+
+.meptrax-hero-split__content .meptrax-hero-lead {
+  color: #475569;
+  font-size: 1.08rem;
+  line-height: 1.65;
+  max-width: 44ch;
+  margin: 0 0 1.85rem;
+}
+
+.meptrax-hero-split__buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.85rem;
+  margin-bottom: 1.35rem;
+}
+
+.meptrax-btn-play .wp-block-button__link {
+  display: inline-flex !important;
+  align-items: center;
+  gap: 0.65rem;
+  border: 2px solid var(--meptrax-navy) !important;
+  background: transparent !important;
+  color: var(--meptrax-navy) !important;
+  border-radius: var(--meptrax-radius) !important;
+}
+
+.meptrax-btn-play .wp-block-button__link::before {
+  content: "";
+  flex-shrink: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid var(--meptrax-navy);
+  background-color: transparent;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23001F3F' d='M4 2.5v7l6-3.5z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: 58% center;
+  background-size: 11px;
+}
+
+.meptrax-btn-play .wp-block-button__link:hover {
+  background: #f8fafc !important;
+}
+
+.meptrax-hero-trust {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  color: #64748b;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.meptrax-hero-trust::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: rgba(255, 159, 0, 0.15);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'%3E%3Cpath fill='%23FF9F00' d='M5 8.2 2.8 6l-.9.9L5 10l6-6-.9-.9z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 11px;
+  flex-shrink: 0;
+}
+
+@media (max-width: 960px) {
+  .meptrax-header {
+    background: #fff;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .meptrax-header__inner {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+  }
+
+  .meptrax-header__brand {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .meptrax-header__buttons {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .meptrax-header__nav {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: stretch;
+    overflow-x: auto;
+  }
+
+  .meptrax-btn-outline-header .wp-block-button__link {
+    border-color: var(--meptrax-navy) !important;
+    color: var(--meptrax-navy) !important;
+  }
+
+  .meptrax-btn-outline-header .wp-block-button__link:hover {
+    background: var(--meptrax-navy) !important;
+    color: #fff !important;
+  }
+
+  .meptrax-hero-split {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .meptrax-hero-split__content {
+    padding: 2.5rem 1.25rem 3rem;
+    order: 2;
+  }
+
+  .meptrax-hero-split__content::after {
+    display: none;
+  }
+
+  .meptrax-hero-split__content h1 {
+    max-width: none;
+  }
+
+  .meptrax-hero-split__visual {
+    min-height: 220px;
+    order: 1;
+  }
+}
+
+/* ----- Contractor features ----- */
+.meptrax-features-section {
+  padding: 4.5rem 1.5rem 5rem;
+  background: #fff;
+}
+
+.meptrax-features-section__inner {
+  max-width: 1080px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.meptrax-features-eyebrow {
+  color: var(--meptrax-blue);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin: 0 0 0.85rem;
+}
+
+.meptrax-features-section h2 {
+  font-size: clamp(1.85rem, 3vw, 2.4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--meptrax-navy);
+  margin: 0 0 3rem;
+  max-width: 22ch;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.meptrax-features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  text-align: left;
+}
+
+.meptrax-feature-card {
+  padding: 0 2.25rem;
+  border-right: 1px solid #e2e8f0;
+}
+
+.meptrax-feature-card:first-child {
+  padding-left: 0;
+}
+
+.meptrax-feature-card:last-child {
+  border-right: none;
+  padding-right: 0;
+}
+
+.meptrax-feature-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background-color: var(--meptrax-sky);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 26px;
+  margin: 0 0 1.35rem !important;
+  padding: 0 !important;
+}
+
+.meptrax-feature-icon--find {
+  background-image: url("../images/icon-find.svg");
+}
+
+.meptrax-feature-icon--mark {
+  background-image: url("../images/icon-mark.svg");
+}
+
+.meptrax-feature-icon--track {
+  background-image: url("../images/icon-track.svg");
+}
+
+.meptrax-feature-card h3 {
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: var(--meptrax-navy);
+  margin: 0 0 0.6rem;
+}
+
+.meptrax-feature-card p {
+  color: #64748b;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .meptrax-features-grid {
+    grid-template-columns: 1fr;
+    gap: 2.25rem;
+  }
+
+  .meptrax-feature-card,
+  .meptrax-feature-card:first-child,
+  .meptrax-feature-card:last-child {
+    border-right: none;
+    border-bottom: 1px solid #e2e8f0;
+    padding: 0 0 2.25rem;
+  }
+
+  .meptrax-feature-card:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+}
+
+/* ----- Legacy / shared ----- */
 .meptrax-notice {
-  border-left: 4px solid var(--wp--preset--color--amber);
-  background: var(--wp--preset--color--gray-100);
-  padding: var(--wp--preset--spacing--40);
+  border-left: 4px solid var(--meptrax-orange);
+  background: #f8fafc;
+  padding: 1rem 1.25rem;
 }
 
 .meptrax-donate-zone {
-  border: 2px dashed var(--wp--preset--color--gray-600);
-  padding: var(--wp--preset--spacing--50);
+  border: 2px dashed #64748b;
+  padding: 2rem;
   text-align: center;
-  border-radius: 8px;
+  border-radius: var(--meptrax-radius);
 }
 
 .meptrax-footer {
-  background-color: var(--wp--preset--color--navy-light);
-  color: var(--wp--preset--color--gray-100);
-  padding-top: var(--wp--preset--spacing--60);
-  padding-bottom: var(--wp--preset--spacing--50);
+  background-color: var(--meptrax-navy);
+  color: #e2e8f0;
+  padding-top: 3rem;
+  padding-bottom: 2.5rem;
 }
 
 .meptrax-footer a {
-  color: var(--wp--preset--color--gray-100);
+  color: #fff;
 }
 
 .meptrax-footer a:hover {
-  color: var(--wp--preset--color--amber);
+  color: var(--meptrax-orange);
 }
 
 .meptrax-cta-band {
-  background: var(--wp--preset--color--navy);
-  color: var(--wp--preset--color--white);
-  padding: var(--wp--preset--spacing--70) var(--wp--preset--spacing--40);
+  background: #0a2d52;
+  color: #fff;
+  padding: 4rem 1.5rem;
   text-align: center;
 }
 
 .meptrax-cta-band .wp-block-heading,
 .meptrax-cta-band p {
-  color: var(--wp--preset--color--white);
+  color: #fff;
 }
 
 .meptrax-legal-page .wp-block-post-content {
