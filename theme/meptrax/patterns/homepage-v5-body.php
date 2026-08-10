@@ -92,16 +92,25 @@ return array(
 	<h2 class="wp-block-heading has-text-align-center">Don\'t let extra work become free work.</h2>
 	<!-- /wp:heading -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">A GC asks for a change. Did anyone document it? Who requested it? Was it priced? Who needs to approve it? Is the field allowed to proceed?</p>
+	<p class="has-text-align-center meptrax-v5-prose">A GC asks for a change.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">Who requested it? Was it documented? Was it priced? Who has to approve it? Is your crew clear to proceed?</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">And when the work is done:</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
 	<p class="has-text-align-center meptrax-v5-pull">Did it get billed? Did you get paid?</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">Every contractor handles changes differently. MEPTrax is being built to follow your company\'s rules.</p>
+	<p class="has-text-align-center meptrax-v5-prose">Every contractor handles change orders differently. MEPTrax Change Orders is being built around your company\'s rules, not ours.</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">Capture the change. Add photos. Record who requested it. Route it to the right person. Get the right approval. Notify the field when they\'re clear to proceed. Then keep following it through billing and payment.</p>
+	<p class="has-text-align-center meptrax-v5-prose">Whether changes require office approval, a GC signature, field authorization—or a different process your company uses—the goal is the same:</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">Capture the change when it happens. Get it to the right person. Get the approval. Let the field know when they can proceed. Then don\'t lose track of it until it\'s billed and paid.</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
 	<p class="has-text-align-center meptrax-v5-pull">Make doing it right faster than doing it wrong.</p>
