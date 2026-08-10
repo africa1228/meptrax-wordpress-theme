@@ -1,13 +1,13 @@
 <?php
 /**
- * Split hero pattern — Homepage V5.
+ * Split hero pattern — Homepage V5.1.
  *
  * @package MEPtrax
  */
 
 return array(
 	'title'       => __( 'Hero Split', 'meptrax' ),
-	'description' => __( 'Profit-question hero with trial CTA.', 'meptrax' ),
+	'description' => __( 'Profit-question hero with Takeoff bridge and trial CTA.', 'meptrax' ),
 	'categories'  => array( 'meptrax' ),
 	'content'     => '<!-- wp:group {"align":"full","className":"meptrax-landing-shell","layout":{"type":"default"}} -->
 <div class="wp-block-group alignfull meptrax-landing-shell">
@@ -34,12 +34,20 @@ return array(
 			<!-- wp:list {"className":"meptrax-hero-questions"} -->
 			<ul class="meptrax-hero-questions wp-block-list">
 				<li>Am I charging enough?</li>
-				<li>Which kinds of jobs actually make me the most money?</li>
+				<li>Which kinds of jobs make me the most money?</li>
 				<li>Where am I losing profit without realizing it?</li>
-				<li>Are my crews producing what I estimated?</li>
-				<li>What could I change to make my business more profitable?</li>
+				<li>Is my labor taking longer than I estimated?</li>
+				<li>What can I change to make more profit?</li>
 			</ul>
 			<!-- /wp:list -->
+
+			<!-- wp:paragraph {"className":"meptrax-hero-bridge"} -->
+			<p class="meptrax-hero-bridge">MEPTrax is being built to connect estimating, field performance and your actual costs—so you can answer those questions with your company\'s numbers, not somebody else\'s averages.</p>
+			<!-- /wp:paragraph -->
+
+			<!-- wp:paragraph {"className":"meptrax-hero-start"} -->
+			<p class="meptrax-hero-start">We\'re starting with Takeoff.</p>
+			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph {"className":"meptrax-hero-tagline"} -->
 			<p class="meptrax-hero-tagline">Know what you bid. Know what\'s happening. Know what you actually made.</p>
@@ -59,10 +67,6 @@ return array(
 
 			<!-- wp:paragraph {"className":"meptrax-hero-trust"} -->
 			<p class="meptrax-hero-trust">30 days free. No credit card required.</p>
-			<!-- /wp:paragraph -->
-
-			<!-- wp:paragraph {"className":"meptrax-hero-lead"} -->
-			<p class="meptrax-hero-lead">MEPTrax is built by electricians, for electricians—to help answer those questions with your company\'s real numbers, not somebody else\'s averages.</p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->

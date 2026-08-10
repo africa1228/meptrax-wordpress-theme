@@ -1,6 +1,8 @@
 /**
  * Capture homepage V5 preview screenshots at required breakpoints.
  * Usage: node tools/capture-homepage-v5-screenshots.mjs
+ *
+ * Also captures hero-only clips and reports header CTA visibility.
  */
 import { chromium } from "playwright";
 import path from "node:path";
@@ -19,7 +21,6 @@ const viewports = [
   { name: "phone-430", width: 430, height: 932 },
   { name: "tablet-768", width: 768, height: 1024 },
   { name: "laptop-1280", width: 1280, height: 800 },
-  { name: "desktop-1440", width: 1440, height: 900 },
 ];
 
 async function main() {
@@ -29,7 +30,7 @@ async function main() {
   fs.mkdirSync(outDir, { recursive: true });
   const browser = await chromium.launch();
   const url = pathToFileURL(htmlPath).href;
-  const overflowReport = [];
+  const report = [];
 
   for (const vp of viewports) {
     const page = await browser.newPage({
@@ -37,16 +38,30 @@ async function main() {
       deviceScaleFactor: 1,
     });
     await page.goto(url, { waitUntil: "load" });
-    await page.waitForTimeout(400);
-    const overflow = await page.evaluate(() => {
+    await page.waitForTimeout(300);
+
+    const metrics = await page.evaluate(() => {
       const doc = document.documentElement;
+      const headerCta = document.querySelector(".meptrax-header-cta-primary");
+      let headerCtaVisible = false;
+      if (headerCta) {
+        const style = window.getComputedStyle(headerCta);
+        const rect = headerCta.getBoundingClientRect();
+        headerCtaVisible =
+          style.display !== "none" &&
+          style.visibility !== "hidden" &&
+          rect.width > 0 &&
+          rect.height > 0;
+      }
       return {
         scrollWidth: doc.scrollWidth,
         clientWidth: doc.clientWidth,
         overflowX: doc.scrollWidth > doc.clientWidth + 1,
+        headerCtaVisible,
       };
     });
-    overflowReport.push({ ...vp, ...overflow });
+    report.push({ ...vp, ...metrics });
+
     await page.screenshot({
       path: path.join(outDir, `${vp.name}-top.png`),
       fullPage: false,
@@ -55,15 +70,23 @@ async function main() {
       path: path.join(outDir, `${vp.name}-full.png`),
       fullPage: true,
     });
+
+    const hero = page.locator(".meptrax-landing-shell");
+    if ((await hero.count()) > 0) {
+      await hero.first().screenshot({
+        path: path.join(outDir, `${vp.name}-hero.png`),
+      });
+    }
+
     await page.close();
   }
 
   await browser.close();
   fs.writeFileSync(
     path.join(outDir, "overflow-report.json"),
-    JSON.stringify(overflowReport, null, 2)
+    JSON.stringify(report, null, 2)
   );
-  console.log(JSON.stringify(overflowReport, null, 2));
+  console.log(JSON.stringify(report, null, 2));
 }
 
 main().catch((err) => {
