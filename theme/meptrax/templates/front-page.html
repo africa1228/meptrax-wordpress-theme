@@ -1,8 +1,9 @@
 <!-- wp:template-part {"slug":"header","area":"header"} /-->
 
-<!-- wp:group {"tagName":"main","layout":{"type":"constrained"}} -->
-<main class="wp-block-group">
-	<!-- wp:post-content {"layout":{"type":"constrained"}} /-->
+<!-- wp:group {"tagName":"main","align":"full","className":"meptrax-front-main","layout":{"type":"default"}} -->
+<main class="wp-block-group alignfull meptrax-front-main">
+	<!-- Homepage content is theme-owned so deploy updates the public page without re-pasting patterns in WP admin. -->
+	<!-- wp:pattern {"slug":"meptrax/home-landing"} /-->
 </main>
 <!-- /wp:group -->
 

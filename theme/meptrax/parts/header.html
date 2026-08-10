@@ -2,39 +2,43 @@
 <header class="wp-block-group meptrax-header">
 	<!-- wp:group {"className":"meptrax-header__inner","layout":{"type":"default"}} -->
 	<div class="wp-block-group meptrax-header__inner">
-		<!-- wp:group {"className":"meptrax-header__brand","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
-		<div class="wp-block-group meptrax-header__brand">
-			<!-- wp:site-logo {"width":48,"shouldSyncIcon":true,"className":"meptrax-site-logo"} /-->
-			<!-- wp:group {"className":"meptrax-header__titles","layout":{"type":"default"}} -->
-			<div class="wp-block-group meptrax-header__titles">
-				<!-- wp:site-title {"level":0} /-->
-				<!-- wp:site-tagline /-->
+		<!-- wp:group {"className":"meptrax-header__light","layout":{"type":"flex","flexWrap":"nowrap","justifyContent":"space-between","verticalAlignment":"center"}} -->
+		<div class="wp-block-group meptrax-header__light">
+			<!-- wp:group {"className":"meptrax-header__brand","layout":{"type":"flex","flexWrap":"nowrap","verticalAlignment":"center"}} -->
+			<div class="wp-block-group meptrax-header__brand">
+				<!-- wp:site-logo {"width":288,"className":"meptrax-site-logo","shouldSyncIcon":false} /-->
+				<!-- wp:group {"className":"meptrax-header__titles","layout":{"type":"default"}} -->
+				<div class="wp-block-group meptrax-header__titles">
+					<!-- wp:site-title {"level":0} /-->
+					<!-- wp:site-tagline /-->
+				</div>
+				<!-- /wp:group -->
 			</div>
 			<!-- /wp:group -->
+
+			<!-- wp:navigation {"className":"meptrax-header__nav meptrax-nav","layout":{"type":"flex","justifyContent":"right"},"overlayMenu":"never"} -->
+				<!-- wp:navigation-submenu {"label":"Product","url":"/product/","kind":"custom","isTopLevelItem":true} -->
+					<!-- wp:navigation-link {"label":"How it works","url":"/product/","kind":"custom","isTopLevelLink":false} /-->
+					<!-- wp:navigation-link {"label":"Features","url":"/product/#features","kind":"custom","isTopLevelLink":false} /-->
+				<!-- /wp:navigation-submenu -->
+				<!-- wp:navigation-link {"label":"Pricing","url":"/pricing/","kind":"custom","isTopLevelLink":true} /-->
+				<!-- wp:navigation-link {"label":"Early Access","url":"/pricing/","kind":"custom","isTopLevelLink":true} /-->
+				<!-- wp:navigation-link {"label":"FAQ","url":"/faq/","kind":"custom","isTopLevelLink":true} /-->
+				<!-- wp:navigation-submenu {"label":"Support","url":"/support/","kind":"custom","isTopLevelItem":true} -->
+					<!-- wp:navigation-link {"label":"Contact","url":"/support/","kind":"custom","isTopLevelLink":false} /-->
+					<!-- wp:navigation-link {"label":"Documentation","url":"/support/#docs","kind":"custom","isTopLevelLink":false} /-->
+				<!-- /wp:navigation-submenu -->
+			<!-- /wp:navigation -->
 		</div>
 		<!-- /wp:group -->
-
-		<!-- wp:navigation {"className":"meptrax-header__nav meptrax-nav","layout":{"type":"flex","justifyContent":"center"},"overlayMenu":"never"} -->
-			<!-- wp:navigation-submenu {"label":"Product","url":"/product/","kind":"custom","isTopLevelItem":true} -->
-				<!-- wp:navigation-link {"label":"How it works","url":"/product/","kind":"custom","isTopLevelLink":false} /-->
-				<!-- wp:navigation-link {"label":"Features","url":"/product/#features","kind":"custom","isTopLevelLink":false} /-->
-			<!-- /wp:navigation-submenu -->
-			<!-- wp:navigation-link {"label":"Pricing","url":"/pricing/","kind":"custom","isTopLevelLink":true} /-->
-			<!-- wp:navigation-link {"label":"Early Access","url":"/pricing/","kind":"custom","isTopLevelLink":true} /-->
-			<!-- wp:navigation-link {"label":"FAQ","url":"/faq/","kind":"custom","isTopLevelLink":true} /-->
-			<!-- wp:navigation-submenu {"label":"Support","url":"/support/","kind":"custom","isTopLevelItem":true} -->
-				<!-- wp:navigation-link {"label":"Contact","url":"/support/","kind":"custom","isTopLevelLink":false} /-->
-				<!-- wp:navigation-link {"label":"Documentation","url":"/support/#docs","kind":"custom","isTopLevelLink":false} /-->
-			<!-- /wp:navigation-submenu -->
-		<!-- /wp:navigation -->
 
 		<!-- wp:buttons {"className":"meptrax-header__buttons","layout":{"type":"flex","justifyContent":"right"}} -->
 		<div class="wp-block-buttons meptrax-header__buttons">
 			<!-- wp:button {"className":"is-style-outline meptrax-btn-outline-header","url":"{{MEPTRAX_APP_LOGIN_URL}}"} -->
 			<div class="wp-block-button is-style-outline meptrax-btn-outline-header"><a class="wp-block-button__link wp-element-button" href="{{MEPTRAX_APP_LOGIN_URL}}">Log in</a></div>
 			<!-- /wp:button -->
-			<!-- wp:button {"className":"meptrax-btn-primary","url":"{{MEPTRAX_APP_SIGNUP_URL}}"} -->
-			<div class="wp-block-button meptrax-btn-primary"><a class="wp-block-button__link wp-element-button" href="{{MEPTRAX_APP_SIGNUP_URL}}">Start free</a></div>
+			<!-- wp:button {"className":"meptrax-btn-primary meptrax-header-cta-primary","url":"{{MEPTRAX_APP_SIGNUP_URL}}"} -->
+			<div class="wp-block-button meptrax-btn-primary meptrax-header-cta-primary"><a class="wp-block-button__link wp-element-button" href="{{MEPTRAX_APP_SIGNUP_URL}}">Try MEPTrax Takeoff Free</a></div>
 			<!-- /wp:button -->
 		</div>
 		<!-- /wp:buttons -->
