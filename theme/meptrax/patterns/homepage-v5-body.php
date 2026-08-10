@@ -72,13 +72,13 @@ return array(
 	<h2 class="wp-block-heading has-text-align-center">Start with ours. Make it yours.</h2>
 	<!-- /wp:heading -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">Every electrical contractor has preferred parts, suppliers, prices and ways of doing the work.</p>
+	<p class="has-text-align-center meptrax-v5-prose">Every electrical contractor has preferred parts, suppliers and ways of doing the work.</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">MEPTrax gives you practical electrical assemblies to start with and lets you create and organize assemblies around the way you work.</p>
+	<p class="has-text-align-center meptrax-v5-prose">MEPTrax gives you practical electrical assemblies to start your takeoff, and lets you create your own assemblies as you work.</p>
 	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-note"} -->
-	<p class="has-text-align-center meptrax-v5-note">We\'re expanding assembly customization to give contractors even more control over their own parts, pricing and labor.</p>
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">We\'re continuing to expand assembly customization, including greater control over the parts, pricing and labor that make up your assemblies.</p>
 	<!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
