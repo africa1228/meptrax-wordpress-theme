@@ -1,6 +1,6 @@
 <?php
 /**
- * Full home landing stack — Homepage V5.
+ * Full home landing stack — homepage map.
  *
  * Theme authority: front-page.html inserts this pattern.
  * WordPress page body content is intentionally not used for the homepage.
@@ -14,7 +14,7 @@ $cta  = require __DIR__ . '/cta-band.php';
 
 return array(
 	'title'       => __( 'Home Landing (Full)', 'meptrax' ),
-	'description' => __( 'Homepage V5: hero, stages, products, founding offer, CTA.', 'meptrax' ),
+	'description' => __( 'Homepage map: Takeoff available now, path to Quote/Business, depth-page CTAs.', 'meptrax' ),
 	'categories'  => array( 'meptrax' ),
 	'content'     => $hero['content'] . "\n\n" . $body['content'] . "\n\n" . $cta['content'],
 );

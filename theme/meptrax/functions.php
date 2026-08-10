@@ -104,7 +104,7 @@ add_action( 'init', 'meptrax_register_block_patterns' );
  */
 function meptrax_pre_get_document_title( $title ) {
 	if ( is_front_page() ) {
-		return 'MEPTrax Takeoff | Built by Electricians, for Electricians';
+		return 'MEPTrax | Know What You Bid. Know What\'s Happening. Know What You Actually Made.';
 	}
 
 	return $title;
@@ -120,8 +120,8 @@ function meptrax_front_page_meta() {
 		return;
 	}
 
-	$description = 'MEPTrax is built by electricians, for electricians. Start with MEPTrax Takeoff—plans, assemblies, and quantities. 30-day free trial. No credit card required.';
-	$title       = 'MEPTrax Takeoff | Built by Electricians, for Electricians';
+	$description = 'Software built for electrical contractors. Start with MEPTrax Takeoff—available now. Quote is releasing soon. Business is in development. 30-day free trial. No credit card required.';
+	$title       = 'MEPTrax | Know What You Bid. Know What\'s Happening. Know What You Actually Made.';
 	$url         = home_url( '/' );
 
 	echo '<meta name="description" content="' . esc_attr( $description ) . '" />' . "\n";

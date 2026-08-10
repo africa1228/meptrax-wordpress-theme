@@ -4,3 +4,7 @@ Thumbs.db
 .idea/
 .vscode/
 *.zip
+node_modules/
+package-lock.json
+package.json
+preview/

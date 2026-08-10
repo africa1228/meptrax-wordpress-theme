@@ -20,7 +20,7 @@ function meptrax_app_signup_url() {
  * App login URL.
  */
 function meptrax_app_login_url() {
-	return apply_filters( 'meptrax_app_login_url', 'https://app.meptrax.com' );
+	return apply_filters( 'meptrax_app_login_url', 'https://app.meptrax.com/login' );
 }
 
 /**

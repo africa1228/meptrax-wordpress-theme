@@ -1212,3 +1212,178 @@ body.meptrax-landing-page .meptrax-front-main {
     min-height: 100px;
   }
 }
+
+/* ==========================================================================
+   Homepage map (content/IA) — reuse existing visual tokens, layout only
+   ========================================================================== */
+
+.meptrax-hero-title-stack {
+  max-width: 16ch !important;
+}
+
+.meptrax-hero-split--map .meptrax-hero-lead {
+  margin-bottom: 0.75rem !important;
+}
+
+.meptrax-hero-split--map .meptrax-status-badge {
+  display: inline-block;
+  margin: 0 0 1rem;
+}
+
+.meptrax-hero-split--map .meptrax-hero-start {
+  margin-bottom: 0.65rem;
+}
+
+.meptrax-text-cta {
+  margin: 0.5rem 0 0;
+  font-weight: 650;
+  font-size: 0.98rem;
+}
+
+.meptrax-text-cta a {
+  color: var(--meptrax-navy);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 31, 63, 0.25);
+}
+
+.meptrax-text-cta a:hover {
+  color: var(--meptrax-orange);
+  border-bottom-color: var(--meptrax-orange);
+}
+
+.meptrax-text-cta--on-dark a {
+  color: #fff;
+  border-bottom-color: rgba(255, 255, 255, 0.45);
+}
+
+.meptrax-text-cta--on-dark a:hover {
+  color: var(--meptrax-orange);
+  border-bottom-color: var(--meptrax-orange);
+}
+
+.meptrax-hero-split__buttons .meptrax-text-cta {
+  margin: 0;
+  align-self: center;
+}
+
+.meptrax-status-badge--soon {
+  background: rgba(255, 159, 0, 0.14);
+  color: #b45309;
+}
+
+.meptrax-product-card__flow {
+  color: var(--meptrax-navy) !important;
+  font-size: 0.88rem !important;
+  font-weight: 650 !important;
+  line-height: 1.4 !important;
+  margin: 0 0 0.75rem !important;
+}
+
+.meptrax-product-card .meptrax-text-cta {
+  margin-top: 1rem;
+}
+
+.meptrax-card-pull {
+  font-size: 1rem !important;
+  margin: 0.65rem 0 0.85rem !important;
+  max-width: none;
+}
+
+.meptrax-v5-section--takeoff-econ,
+.meptrax-v5-section--transition,
+.meptrax-v5-section--honesty {
+  background: #f8fafc;
+}
+
+.meptrax-v5-section--knowledge,
+.meptrax-v5-section--biz-buttons {
+  background: #fff;
+}
+
+.meptrax-biz-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 1080px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.meptrax-biz-grid .meptrax-product-card:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+  max-width: 34rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+
+.meptrax-biz-grid .meptrax-product-card h3 {
+  font-size: 1.12rem;
+  line-height: 1.25;
+}
+
+.meptrax-oa-sequence {
+  max-width: 22rem;
+}
+
+.meptrax-success-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 720px;
+  margin: 2rem auto 1.25rem;
+  width: 100%;
+}
+
+.meptrax-success-card {
+  text-align: center;
+}
+
+.meptrax-success-card h3 {
+  margin-top: 0 !important;
+}
+
+.meptrax-status-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  max-width: 720px;
+  margin: 1.5rem auto;
+  text-align: center;
+}
+
+.meptrax-status-row p {
+  margin: 0;
+  color: var(--meptrax-navy);
+  line-height: 1.5;
+}
+
+.meptrax-status-row .meptrax-status-badge {
+  margin-top: 0.45rem;
+}
+
+@media (max-width: 768px) {
+  .meptrax-hero-title-stack {
+    max-width: none !important;
+    font-size: clamp(1.45rem, 6.5vw, 1.9rem) !important;
+  }
+
+  .meptrax-biz-grid,
+  .meptrax-success-pair,
+  .meptrax-status-row {
+    grid-template-columns: 1fr;
+  }
+
+  .meptrax-biz-grid .meptrax-product-card:last-child:nth-child(odd) {
+    max-width: none;
+  }
+
+  .meptrax-hero-split__buttons {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .meptrax-oa-sequence {
+    max-width: none;
+  }
+}

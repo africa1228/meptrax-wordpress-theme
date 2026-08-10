@@ -1,197 +1,28 @@
 <?php
 /**
- * Homepage V5 body sections (after hero).
+ * Homepage body — map of Takeoff today + links to depth pages.
  *
- * Content + information architecture only.
- * No unfinished detail-page CTAs.
+ * Status law:
+ * - Takeoff: AVAILABLE NOW
+ * - Quote: RELEASING SOON
+ * - Business / domain modules: IN DEVELOPMENT
  *
  * @package MEPtrax
  */
 
 return array(
-	'title'       => __( 'Homepage V5 Body', 'meptrax' ),
-	'description' => __( 'Remaining homepage V5 sections after hero.', 'meptrax' ),
+	'title'       => __( 'Homepage Map Body', 'meptrax' ),
+	'description' => __( 'Compressed homepage sections 2–9 with CTAs to existing depth pages.', 'meptrax' ),
 	'categories'  => array( 'meptrax' ),
 	'content'     => '
-<!-- wp:group {"align":"full","className":"meptrax-v5-section meptrax-v5-section--software","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull meptrax-v5-section meptrax-v5-section--software">
-	<!-- wp:paragraph {"className":"meptrax-v5-eyebrow"} -->
-	<p class="meptrax-v5-eyebrow">Software shouldn\'t become another job</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:heading {"textAlign":"center","level":2} -->
-	<h2 class="wp-block-heading has-text-align-center">You have an electrical business to run.</h2>
-	<!-- /wp:heading -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">You shouldn\'t need days of setup, hours of training, or somebody else\'s idea of how an electrical contractor should work just to get something useful from your software.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">MEPTrax gives you practical starting points, then lets you make them fit your company.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
-	<p class="has-text-align-center meptrax-v5-pull">Your software should fit your company. Not the other way around.</p>
-	<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-
-<!-- wp:group {"align":"full","className":"meptrax-v5-section meptrax-v5-section--takeoff","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull meptrax-v5-section meptrax-v5-section--takeoff">
-	<!-- wp:paragraph {"className":"meptrax-status-badge meptrax-status-badge--now"} -->
-	<p class="meptrax-status-badge meptrax-status-badge--now">Available now</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:heading {"textAlign":"center","level":2} -->
-	<h2 class="wp-block-heading has-text-align-center">Start with MEPTrax Takeoff.</h2>
-	<!-- /wp:heading -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">MEPTrax Takeoff is the first part of a larger MEPTrax system. We\'re releasing MEPTrax in logical stages so each part is ready to be useful when it reaches your hands.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
-	<p class="has-text-align-center meptrax-v5-pull">Takeoff is available now.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">Upload your plans. Perform your takeoff. Work with electrical assemblies. Get your quantities.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">Then get back to estimating.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
-	<div class="wp-block-buttons">
-		<!-- wp:button {"className":"meptrax-btn-primary meptrax-btn-lg","url":"{{MEPTRAX_APP_SIGNUP_URL}}"} -->
-		<div class="wp-block-button meptrax-btn-primary meptrax-btn-lg"><a class="wp-block-button__link wp-element-button" href="{{MEPTRAX_APP_SIGNUP_URL}}">Try MEPTrax Takeoff Free</a></div>
-		<!-- /wp:button -->
-	</div>
-	<!-- /wp:buttons -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-support"} -->
-	<p class="has-text-align-center meptrax-v5-support">30 days free. No credit card required.</p>
-	<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-
-<!-- wp:group {"align":"full","className":"meptrax-v5-section meptrax-v5-section--assemblies","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull meptrax-v5-section meptrax-v5-section--assemblies">
-	<!-- wp:heading {"textAlign":"center","level":2} -->
-	<h2 class="wp-block-heading has-text-align-center">Start with ours. Make it yours.</h2>
-	<!-- /wp:heading -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">Every electrical contractor has preferred parts, suppliers and ways of doing the work.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">MEPTrax gives you practical electrical assemblies to start your takeoff, and lets you create your own assemblies as you work.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">We\'re continuing to expand assembly customization, including greater control over the parts, pricing and labor that make up your assemblies.</p>
-	<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-
-<!-- wp:group {"align":"full","className":"meptrax-v5-section meptrax-v5-section--future meptrax-v5-section--changeorders","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull meptrax-v5-section meptrax-v5-section--future meptrax-v5-section--changeorders">
-	<!-- wp:paragraph {"className":"meptrax-status-badge meptrax-status-badge--coming"} -->
-	<p class="meptrax-status-badge meptrax-status-badge--coming">Coming soon</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:heading {"textAlign":"center","level":2} -->
-	<h2 class="wp-block-heading has-text-align-center">Don\'t let extra work become free work.</h2>
-	<!-- /wp:heading -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">A GC asks for a change.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">Who requested it? Was it documented? Was it priced? Who has to approve it? Is your crew clear to proceed?</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">And when the work is done:</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
-	<p class="has-text-align-center meptrax-v5-pull">Did it get billed? Did you get paid?</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">Every contractor handles change orders differently. MEPTrax Change Orders is being built around your company\'s rules, not ours.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">Whether changes require office approval, a GC signature, field authorization—or a different process your company uses—the goal is the same:</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">Capture the change when it happens. Get it to the right person. Get the approval. Let the field know when they can proceed. Then don\'t lose track of it until it\'s billed and paid.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
-	<p class="has-text-align-center meptrax-v5-pull">Make doing it right faster than doing it wrong.</p>
-	<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-
-<!-- wp:group {"align":"full","className":"meptrax-v5-section meptrax-v5-section--future meptrax-v5-section--field","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull meptrax-v5-section meptrax-v5-section--future meptrax-v5-section--field">
-	<!-- wp:paragraph {"className":"meptrax-status-badge meptrax-status-badge--coming"} -->
-	<p class="meptrax-status-badge meptrax-status-badge--coming">Coming soon</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:heading {"textAlign":"center","level":2} -->
-	<h2 class="wp-block-heading has-text-align-center">Your electricians worked all day. What did they actually accomplish?</h2>
-	<!-- /wp:heading -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">A timecard tells you how many hours you paid for. It doesn\'t tell you what those hours produced—or whether the work is taking longer than you estimated.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">MEPTrax Field Control is being built to connect what happens in the field back to the work you estimated.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">Instead of simply collecting hours and daily reports, we\'re building Field Control to help you see what work was accomplished, how much labor you expected it to take, and how much labor you\'re actually using.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">Delays, problems and field changes can be captured as they happen, so you can understand why the numbers are changing—not just discover later that they changed.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
-	<p class="has-text-align-center meptrax-v5-pull">Find out where the labor is going while there\'s still time to do something about it.</p>
-	<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-
-<!-- wp:group {"align":"full","className":"meptrax-v5-section meptrax-v5-section--awareness","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull meptrax-v5-section meptrax-v5-section--awareness">
-	<!-- wp:heading {"textAlign":"center","level":2} -->
-	<h2 class="wp-block-heading has-text-align-center">Your business doesn\'t operate in separate boxes. Why should your software?</h2>
-	<!-- /wp:heading -->
-	<!-- wp:list {"className":"meptrax-v5-connect-list"} -->
-	<ul class="meptrax-v5-connect-list wp-block-list">
-		<li>Your estimate affects the job.</li>
-		<li>Field productivity affects labor cost.</li>
-		<li>Purchasing affects margin.</li>
-		<li>Changes affect the contract.</li>
-		<li>Billing affects cash.</li>
-	</ul>
-	<!-- /wp:list -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
-	<p class="has-text-align-center meptrax-v5-pull">It\'s all connected.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">MEPTrax is built around those connections. Instead of simply recording separate activities, MEPTrax relates what\'s happening across your business so you can understand what happened, why it happened, and what it means for everything else.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
-	<p class="has-text-align-center meptrax-v5-pull">We call it Operational Awareness.</p>
-	<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-
-<!-- wp:group {"align":"full","className":"meptrax-v5-section meptrax-v5-section--estimate","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull meptrax-v5-section meptrax-v5-section--estimate">
-	<!-- wp:heading {"textAlign":"center","level":2} -->
-	<h2 class="wp-block-heading has-text-align-center">Your estimate shouldn\'t disappear when you win the job.</h2>
-	<!-- /wp:heading -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">You estimated labor. You estimated material. You accounted for overhead. You expected a profit. Then you won the job.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
-	<p class="has-text-align-center meptrax-v5-pull">That\'s when your estimate should become more useful.</p>
-	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">MEPTrax is being built to carry that information forward and compare what you expected with what actually happens.</p>
-	<!-- /wp:paragraph -->
-</div>
-<!-- /wp:group -->
-
 <!-- wp:group {"align":"full","className":"meptrax-v5-section meptrax-v5-section--products","layout":{"type":"constrained"}} -->
 <div class="wp-block-group alignfull meptrax-v5-section meptrax-v5-section--products">
 	<!-- wp:heading {"textAlign":"center","level":2} -->
-	<h2 class="wp-block-heading has-text-align-center">Start with what you need. Add more when you\'re ready.</h2>
+	<h2 class="wp-block-heading has-text-align-center">Start with Takeoff.<br>Grow with MEPTrax.</h2>
 	<!-- /wp:heading -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">The same work should not have to start over every time it moves to another part of your company.</p>
+	<!-- /wp:paragraph -->
 	<!-- wp:group {"className":"meptrax-product-grid","layout":{"type":"default"}} -->
 	<div class="wp-block-group meptrax-product-grid">
 		<!-- wp:group {"className":"meptrax-product-card meptrax-product-card--now","layout":{"type":"default"}} -->
@@ -205,136 +36,372 @@ return array(
 			<!-- wp:paragraph {"className":"meptrax-product-card__tagline"} -->
 			<p class="meptrax-product-card__tagline">Know the work.</p>
 			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"meptrax-product-card__flow"} -->
+			<p class="meptrax-product-card__flow">Plans → assemblies → quantities</p>
+			<!-- /wp:paragraph -->
 			<!-- wp:paragraph -->
-			<p>Plans, takeoff, assemblies and quantities.</p>
+			<p>Work directly from PDF electrical plans. Count the work, organize it by room or area, use assemblies, review quantities and export the takeoff.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"meptrax-text-cta"} -->
+			<p class="meptrax-text-cta"><a href="{{MEPTRAX_APP_SIGNUP_URL}}">Try Takeoff Free →</a></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
 		<!-- wp:group {"className":"meptrax-product-card","layout":{"type":"default"}} -->
 		<div class="wp-block-group meptrax-product-card">
-			<!-- wp:paragraph {"className":"meptrax-status-badge meptrax-status-badge--coming"} -->
-			<p class="meptrax-status-badge meptrax-status-badge--coming">Coming soon</p>
+			<!-- wp:paragraph {"className":"meptrax-status-badge meptrax-status-badge--soon"} -->
+			<p class="meptrax-status-badge meptrax-status-badge--soon">Releasing soon</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:heading {"level":3} -->
 			<h3 class="wp-block-heading">MEPTrax Quote</h3>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph {"className":"meptrax-product-card__tagline"} -->
-			<p class="meptrax-product-card__tagline">Know what to charge.</p>
+			<p class="meptrax-product-card__tagline">Know what you\'re selling.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"meptrax-product-card__flow"} -->
+			<p class="meptrax-product-card__flow">Takeoff → cost → price → proposal → accepted work</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:paragraph -->
-			<p>Carry Takeoff quantities forward into material, labor, overhead, profit, pricing, proposal, contract and acceptance.</p>
+			<p>Carry the work you already took off into costing, pricing and the proposal — without rebuilding the job from scratch.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"meptrax-text-cta"} -->
+			<p class="meptrax-text-cta"><a href="/products/">See the product path →</a></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
 		<!-- wp:group {"className":"meptrax-product-card","layout":{"type":"default"}} -->
 		<div class="wp-block-group meptrax-product-card">
 			<!-- wp:paragraph {"className":"meptrax-status-badge meptrax-status-badge--stages"} -->
-			<p class="meptrax-status-badge meptrax-status-badge--stages">Released in stages</p>
+			<p class="meptrax-status-badge meptrax-status-badge--stages">In development</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:heading {"level":3} -->
 			<h3 class="wp-block-heading">MEPTrax Business</h3>
 			<!-- /wp:heading -->
 			<!-- wp:paragraph {"className":"meptrax-product-card__tagline"} -->
-			<p class="meptrax-product-card__tagline">Know what\'s happening. Know what you\'re making.</p>
+			<p class="meptrax-product-card__tagline">Know what\'s happening — and what you actually made.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"meptrax-product-card__flow"} -->
+			<p class="meptrax-product-card__flow">Production → labor → Change Orders → cost → profitability → learning</p>
 			<!-- /wp:paragraph -->
 			<!-- wp:paragraph -->
-			<p>Field control, productivity, change orders, materials, purchasing, inventory, job costs, billing, payments, AP/AR and profitability.</p>
+			<p>Connect what you expected with what actually happens while the job is being built.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"meptrax-text-cta"} -->
+			<p class="meptrax-text-cta"><a href="/products/">See where MEPTrax is going →</a></p>
 			<!-- /wp:paragraph -->
 		</div>
 		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-note"} -->
-	<p class="has-text-align-center meptrax-v5-note">Choose what your company needs. Add more MEPTrax when you\'re ready. Takeoff does not include Quote or Business.</p>
+	<p class="has-text-align-center meptrax-v5-note">MEPTrax Takeoff is available today. Quote and Business are separate products being developed and are not included with a Takeoff subscription unless explicitly stated.</p>
 	<!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"full","className":"meptrax-v5-section meptrax-v5-section--profit","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull meptrax-v5-section meptrax-v5-section--profit">
+<!-- wp:group {"align":"full","className":"meptrax-v5-section meptrax-v5-section--takeoff-econ","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull meptrax-v5-section meptrax-v5-section--takeoff-econ">
 	<!-- wp:heading {"textAlign":"center","level":2} -->
-	<h2 class="wp-block-heading has-text-align-center">Winning work doesn\'t mean you\'re making money.</h2>
+	<h2 class="wp-block-heading has-text-align-center">How many bids does it take you to win a job?</h2>
 	<!-- /wp:heading -->
 	<!-- wp:list {"className":"meptrax-v5-question-list"} -->
 	<ul class="meptrax-v5-question-list wp-block-list">
-		<li>What did I expect to make?</li>
-		<li>What am I actually making?</li>
-		<li>Where did the difference go?</li>
+		<li>How long does each takeoff take?</li>
+		<li>How do you value your time?</li>
 	</ul>
 	<!-- /wp:list -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">Examples contractors run into every week: labor running over estimate, material cost increasing, crew delays, extra work not billed, and overhead affecting true profitability.</p>
+	<p class="has-text-align-center meptrax-v5-prose">Your established customers may give you most of what you bid.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">Growth is different.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">Finding your next good customer may mean taking off several projects that never become your jobs.</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
-	<p class="has-text-align-center meptrax-v5-pull">Don\'t find out after the job is over.</p>
+	<p class="has-text-align-center meptrax-v5-pull">The work you win has to support the estimating time spent on the work you don\'t.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-text-cta"} -->
+	<p class="has-text-align-center meptrax-text-cta"><a href="/what-does-it-cost-you-to-win-a-job/">What does it cost you to win a job? →</a></p>
 	<!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"full","className":"meptrax-v5-section meptrax-v5-section--learning","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull meptrax-v5-section meptrax-v5-section--learning">
+<!-- wp:group {"align":"full","className":"meptrax-v5-section meptrax-v5-section--knowledge","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull meptrax-v5-section meptrax-v5-section--knowledge">
 	<!-- wp:heading {"textAlign":"center","level":2} -->
-	<h2 class="wp-block-heading has-text-align-center">Every job should make the next estimate better.</h2>
+	<h2 class="wp-block-heading has-text-align-center">Takeoff requires your knowledge.</h2>
 	<!-- /wp:heading -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">If you estimated an installation at five hours and your crews consistently need seven, you should know.</p>
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
+	<p class="has-text-align-center meptrax-v5-pull">It shouldn\'t consume your life.</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">If one kind of project consistently makes money and another doesn\'t, you should know.</p>
+	<p class="has-text-align-center meptrax-v5-prose">AI can recognize a receptacle symbol.</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">If your estimate was right but productivity, material costs or missed changes ate the profit, you should know why.</p>
+	<p class="has-text-align-center meptrax-v5-prose">An electrician knows that identical symbols can represent different installations.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">Drywall. Block. Tile. Surface mount. Outdoor. Different conditions can mean different assemblies.</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
-	<p class="has-text-align-center meptrax-v5-pull">Know where you\'re making money. Know where you\'re losing it. Know why.</p>
+	<p class="has-text-align-center meptrax-v5-pull">The symbol didn\'t change.<br>The assembly did.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">MEPTrax isn\'t being built around pretending AI already knows your trade.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">We\'re building toward software that learns from the decisions electricians actually make.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-text-cta"} -->
+	<p class="has-text-align-center meptrax-text-cta"><a href="/takeoff-requires-your-knowledge/">See why MEPTrax takes a different approach →</a></p>
 	<!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 
-<!-- wp:group {"align":"full","className":"meptrax-v5-section meptrax-v5-section--founding","layout":{"type":"constrained"}} -->
-<div class="wp-block-group alignfull meptrax-v5-section meptrax-v5-section--founding">
-	<!-- wp:paragraph {"className":"meptrax-status-badge meptrax-status-badge--planned"} -->
-	<p class="meptrax-status-badge meptrax-status-badge--planned">Founding offer</p>
-	<!-- /wp:paragraph -->
+<!-- wp:group {"align":"full","className":"meptrax-v5-section meptrax-v5-section--transition","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull meptrax-v5-section meptrax-v5-section--transition">
 	<!-- wp:heading {"textAlign":"center","level":2} -->
-	<h2 class="wp-block-heading has-text-align-center">Try MEPTrax Takeoff free for 30 days.</h2>
+	<h2 class="wp-block-heading has-text-align-center">What if the takeoff didn\'t end when you exported it?</h2>
 	<!-- /wp:heading -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-support"} -->
-	<p class="has-text-align-center meptrax-v5-support">No credit card required.</p>
+	<!-- wp:list {"className":"meptrax-v5-connect-list"} -->
+	<ul class="meptrax-v5-connect-list wp-block-list">
+		<li>What you count becomes what you quote.</li>
+		<li>What you quote becomes what you expect.</li>
+		<li>What you expect meets reality in the field.</li>
+		<li>And what actually happens should make the next job better.</li>
+	</ul>
+	<!-- /wp:list -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
+	<p class="has-text-align-center meptrax-v5-pull">The job is one story.<br>MEPTrax is being built to keep it connected.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-text-cta"} -->
+	<p class="has-text-align-center meptrax-text-cta"><a href="/products/">Explore MEPTrax →</a></p>
+	<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","className":"meptrax-v5-section meptrax-v5-section--biz-buttons","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull meptrax-v5-section meptrax-v5-section--biz-buttons">
+	<!-- wp:group {"className":"meptrax-biz-grid","layout":{"type":"default"}} -->
+	<div class="wp-block-group meptrax-biz-grid">
+		<!-- wp:group {"className":"meptrax-product-card","layout":{"type":"default"}} -->
+		<div class="wp-block-group meptrax-product-card">
+			<!-- wp:paragraph {"className":"meptrax-status-badge meptrax-status-badge--stages"} -->
+			<p class="meptrax-status-badge meptrax-status-badge--stages">In development</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:heading {"level":3} -->
+			<h3 class="wp-block-heading">How low can you bid — and still be glad you won the job?</h3>
+			<!-- /wp:heading -->
+			<!-- wp:paragraph -->
+			<p>Knowing what you need to charge is one thing. The market decides what it will pay. If those numbers don\'t meet, where can you improve the cost of producing the work?</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph -->
+			<p>And when a job performs better than expected — do you know why?</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"meptrax-text-cta"} -->
+			<p class="meptrax-text-cta"><a href="/pricing-profitability/">Explore Pricing &amp; Profitability →</a></p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+		<!-- wp:group {"className":"meptrax-product-card","layout":{"type":"default"}} -->
+		<div class="wp-block-group meptrax-product-card">
+			<!-- wp:paragraph {"className":"meptrax-status-badge meptrax-status-badge--stages"} -->
+			<p class="meptrax-status-badge meptrax-status-badge--stages">In development</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:heading {"level":3} -->
+			<h3 class="wp-block-heading">Your electricians worked all day.</h3>
+			<!-- /wp:heading -->
+			<!-- wp:paragraph {"className":"meptrax-product-card__tagline"} -->
+			<p class="meptrax-product-card__tagline">What did they actually accomplish?</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph -->
+			<p>A timecard tells you how many hours you paid for. It doesn\'t tell you whether those hours produced more or less work than you expected.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph -->
+			<p>Hours tell you what you spent. Production helps tell you what you got for it.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"meptrax-text-cta"} -->
+			<p class="meptrax-text-cta"><a href="/field-production/">Explore Field Production →</a></p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+		<!-- wp:group {"className":"meptrax-product-card","layout":{"type":"default"}} -->
+		<div class="wp-block-group meptrax-product-card">
+			<!-- wp:paragraph {"className":"meptrax-status-badge meptrax-status-badge--stages"} -->
+			<p class="meptrax-status-badge meptrax-status-badge--stages">In development</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:heading {"level":3} -->
+			<h3 class="wp-block-heading">Every Change Order changes your profit.</h3>
+			<!-- /wp:heading -->
+			<!-- wp:paragraph {"className":"meptrax-product-card__tagline"} -->
+			<p class="meptrax-product-card__tagline">The question is which way.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph -->
+			<p>Changed work can become profitable additional business. Or it can consume labor and material you never recover.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph -->
+			<p>Approval protects the price. It doesn\'t guarantee the profit.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"meptrax-text-cta"} -->
+			<p class="meptrax-text-cta"><a href="/change-orders/">Explore Change Orders →</a></p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+		<!-- wp:group {"className":"meptrax-product-card","layout":{"type":"default"}} -->
+		<div class="wp-block-group meptrax-product-card">
+			<!-- wp:paragraph {"className":"meptrax-status-badge meptrax-status-badge--stages"} -->
+			<p class="meptrax-status-badge meptrax-status-badge--stages">In development</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:heading {"level":3} -->
+			<h3 class="wp-block-heading">Your people learn every day.</h3>
+			<!-- /wp:heading -->
+			<!-- wp:paragraph {"className":"meptrax-product-card__tagline"} -->
+			<p class="meptrax-product-card__tagline">Does your company?</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph -->
+			<p>A job went badly? Learn from it. A job went exceptionally well? Learn from that too.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"meptrax-v5-pull meptrax-card-pull"} -->
+			<p class="meptrax-v5-pull meptrax-card-pull">Don\'t make the next job relearn what the last job already taught you.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"meptrax-text-cta"} -->
+			<p class="meptrax-text-cta"><a href="/performance-learning/">Explore Performance &amp; Learning →</a></p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+		<!-- wp:group {"className":"meptrax-product-card","layout":{"type":"default"}} -->
+		<div class="wp-block-group meptrax-product-card">
+			<!-- wp:paragraph {"className":"meptrax-status-badge meptrax-status-badge--stages"} -->
+			<p class="meptrax-status-badge meptrax-status-badge--stages">In development</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:heading {"level":3} -->
+			<h3 class="wp-block-heading">You built a company.</h3>
+			<!-- /wp:heading -->
+			<!-- wp:paragraph {"className":"meptrax-product-card__tagline"} -->
+			<p class="meptrax-product-card__tagline">Did you accidentally build yourself a bigger job?</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph -->
+			<p>As the company grows, you cannot personally know everything that\'s happening. You shouldn\'t have to.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph -->
+			<p>You don\'t need more information. You need to know what matters.</p>
+			<!-- /wp:paragraph -->
+			<!-- wp:paragraph {"className":"meptrax-text-cta"} -->
+			<p class="meptrax-text-cta"><a href="/business-control/">Explore Business Control →</a></p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","className":"meptrax-v5-section meptrax-v5-section--awareness","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull meptrax-v5-section meptrax-v5-section--awareness">
+	<!-- wp:heading {"textAlign":"center","level":2} -->
+	<h2 class="wp-block-heading has-text-align-center">Your questions don\'t stop where one piece of software ends.</h2>
+	<!-- /wp:heading -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">Your estimating software knows the estimate. Your timekeeping software knows the hours. Your project software knows the job. Your accounting software knows the transactions.</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">We\'re looking for our first <strong>100 verified electrical contracting companies</strong>.</p>
+	<p class="has-text-align-center meptrax-v5-prose">All useful. But the questions that determine whether you made money cross all of them.</p>
 	<!-- /wp:paragraph -->
-	<!-- wp:group {"className":"meptrax-founding-card","layout":{"type":"default"}} -->
-	<div class="wp-block-group meptrax-founding-card">
-		<!-- wp:heading {"textAlign":"center","level":3} -->
-		<h3 class="wp-block-heading has-text-align-center">Founding 100 Takeoff pricing</h3>
-		<!-- /wp:heading -->
-		<!-- wp:paragraph {"align":"center","className":"meptrax-founding-price"} -->
-		<p class="has-text-align-center meptrax-founding-price"><strong>$39.99</strong>/month &nbsp;·&nbsp; <strong>$399</strong>/year</p>
+	<!-- wp:list {"className":"meptrax-v5-question-list meptrax-oa-sequence"} -->
+	<ul class="meptrax-v5-question-list meptrax-oa-sequence wp-block-list">
+		<li>What did we expect?</li>
+		<li>What actually happened?</li>
+		<li>What\'s different?</li>
+		<li>Why?</li>
+		<li>What should we correct?</li>
+		<li>What should we reinforce?</li>
+		<li>What should we know next time?</li>
+	</ul>
+	<!-- /wp:list -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">Most software records pieces of the answer.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">MEPTrax is being built to preserve the relationships between them.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
+	<p class="has-text-align-center meptrax-v5-pull">We call that Operational Awareness Software.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">Know what\'s happening while you can still do something about it.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-text-cta"} -->
+	<p class="has-text-align-center meptrax-text-cta"><a href="/operational-awareness/">What is Operational Awareness? →</a></p>
+	<!-- /wp:paragraph -->
+
+	<!-- wp:group {"className":"meptrax-success-pair","layout":{"type":"default"}} -->
+	<div class="wp-block-group meptrax-success-pair">
+		<!-- wp:group {"className":"meptrax-product-card meptrax-success-card","layout":{"type":"default"}} -->
+		<div class="wp-block-group meptrax-product-card meptrax-success-card">
+			<!-- wp:heading {"level":3} -->
+			<h3 class="wp-block-heading">Something went wrong?</h3>
+			<!-- /wp:heading -->
+			<!-- wp:paragraph {"className":"meptrax-product-card__tagline"} -->
+			<p class="meptrax-product-card__tagline">Find out why. Correct it.</p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+		<!-- wp:group {"className":"meptrax-product-card meptrax-success-card","layout":{"type":"default"}} -->
+		<div class="wp-block-group meptrax-product-card meptrax-success-card">
+			<!-- wp:heading {"level":3} -->
+			<h3 class="wp-block-heading">Something went right?</h3>
+			<!-- /wp:heading -->
+			<!-- wp:paragraph {"className":"meptrax-product-card__tagline"} -->
+			<p class="meptrax-product-card__tagline">Find out why. Reinforce it.</p>
+			<!-- /wp:paragraph -->
+		</div>
+		<!-- /wp:group -->
+	</div>
+	<!-- /wp:group -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">Operational Awareness isn\'t only about finding losses and overruns. Your best jobs, strongest crews and unexpectedly good results may contain some of the most valuable information your company produces.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
+	<p class="has-text-align-center meptrax-v5-pull">A good year shouldn\'t only produce money.<br>It should produce knowledge.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-text-cta"} -->
+	<p class="has-text-align-center meptrax-text-cta"><a href="/performance-learning/">See how a company can learn →</a></p>
+	<!-- /wp:paragraph -->
+</div>
+<!-- /wp:group -->
+
+<!-- wp:group {"align":"full","className":"meptrax-v5-section meptrax-v5-section--honesty","layout":{"type":"constrained"}} -->
+<div class="wp-block-group alignfull meptrax-v5-section meptrax-v5-section--honesty">
+	<!-- wp:heading {"textAlign":"center","level":2} -->
+	<h2 class="wp-block-heading has-text-align-center">You don\'t have to buy the future to start today.</h2>
+	<!-- /wp:heading -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">MEPTrax is being released in usable stages.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">Takeoff is available now. Quote is releasing soon. Business and broader Operational Awareness capabilities are in development.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:group {"className":"meptrax-status-row","layout":{"type":"default"}} -->
+	<div class="wp-block-group meptrax-status-row">
+		<!-- wp:paragraph -->
+		<p><strong>MEPTrax Takeoff</strong><br><span class="meptrax-status-badge meptrax-status-badge--now">Available now</span></p>
 		<!-- /wp:paragraph -->
-		<!-- wp:list {"className":"meptrax-founding-list"} -->
-		<ul class="meptrax-founding-list wp-block-list">
-			<li>2 users included</li>
-			<li>Additional Takeoff users: $10/month each</li>
-			<li>Subscribe during trial and keep remaining free-trial time</li>
-			<li>Founding pricing applies to MEPTrax Takeoff</li>
-			<li>Future MEPTrax products may have separate pricing</li>
-			<li>Eligibility and business verification required</li>
-		</ul>
-		<!-- /wp:list -->
-		<!-- wp:paragraph {"align":"center","className":"meptrax-v5-note"} -->
-		<p class="has-text-align-center meptrax-v5-note">Planned founding offer — pricing information for Founding 100. Self-serve paid checkout is not live yet. Start with the free Takeoff trial today.</p>
+		<!-- wp:paragraph -->
+		<p><strong>MEPTrax Quote</strong><br><span class="meptrax-status-badge meptrax-status-badge--soon">Releasing soon</span></p>
+		<!-- /wp:paragraph -->
+		<!-- wp:paragraph -->
+		<p><strong>MEPTrax Business</strong><br><span class="meptrax-status-badge meptrax-status-badge--stages">In development</span></p>
 		<!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
-	<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"center"}} -->
-	<div class="wp-block-buttons">
-		<!-- wp:button {"className":"meptrax-btn-primary meptrax-btn-lg","url":"{{MEPTRAX_APP_SIGNUP_URL}}"} -->
-		<div class="wp-block-button meptrax-btn-primary meptrax-btn-lg"><a class="wp-block-button__link wp-element-button" href="{{MEPTRAX_APP_SIGNUP_URL}}">Try MEPTrax Takeoff Free</a></div>
-		<!-- /wp:button -->
-	</div>
-	<!-- /wp:buttons -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-note"} -->
+	<p class="has-text-align-center meptrax-v5-note">Buying MEPTrax Takeoff does not include Quote, Business or other future products unless explicitly stated.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-text-cta"} -->
+	<p class="has-text-align-center meptrax-text-cta"><a href="/products/">See all MEPTrax products →</a></p>
+	<!-- /wp:paragraph -->
 </div>
 <!-- /wp:group -->
 ',
