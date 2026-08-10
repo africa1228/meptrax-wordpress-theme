@@ -55,7 +55,7 @@ function loadHeader() {
       </div>
       <nav class="meptrax-header__nav meptrax-nav" aria-label="Primary">
         <ul class="wp-block-navigation__container" style="display:flex;list-style:none;margin:0;padding:0;gap:0.5rem;">
-          <li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="/product/">Product</a></li>
+          <li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="/products/">Products</a></li>
           <li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="/pricing/">Pricing</a></li>
           <li class="wp-block-navigation-item"><a class="wp-block-navigation-item__content" href="/support/">Support</a></li>
         </ul>

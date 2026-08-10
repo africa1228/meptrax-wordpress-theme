@@ -326,8 +326,8 @@ return array(
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
 	<p class="has-text-align-center meptrax-v5-prose">MEPTrax is being built to preserve the relationships between them.</p>
 	<!-- /wp:paragraph -->
-	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
-	<p class="has-text-align-center meptrax-v5-pull">We call that Operational Awareness Software.</p>
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull meptrax-v5-pull--oa-reveal"} -->
+	<p class="has-text-align-center meptrax-v5-pull meptrax-v5-pull--oa-reveal">We call that Operational Awareness Software.</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
 	<p class="has-text-align-center meptrax-v5-prose">Know what\'s happening while you can still do something about it.</p>
