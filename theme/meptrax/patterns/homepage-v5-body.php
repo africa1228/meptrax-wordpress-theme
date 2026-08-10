@@ -42,7 +42,7 @@ return array(
 	<h2 class="wp-block-heading has-text-align-center">Start with MEPTrax Takeoff.</h2>
 	<!-- /wp:heading -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">MEPTrax is a much larger system, and much of that system is already built. We\'re releasing it in logical stages so each piece is useful when it reaches your hands.</p>
+	<p class="has-text-align-center meptrax-v5-prose">MEPTrax Takeoff is the first part of a larger MEPTrax system. We\'re releasing MEPTrax in logical stages so each part is ready to be useful when it reaches your hands.</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
 	<p class="has-text-align-center meptrax-v5-pull">Takeoff is available now.</p>
