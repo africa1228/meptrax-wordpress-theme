@@ -127,13 +127,16 @@ return array(
 	<h2 class="wp-block-heading has-text-align-center">Your electricians worked all day. What did they actually accomplish?</h2>
 	<!-- /wp:heading -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">A timecard tells you how many hours you paid for. That\'s not the same as knowing what those hours accomplished.</p>
+	<p class="has-text-align-center meptrax-v5-prose">A timecard tells you how many hours you paid for. It doesn\'t tell you what those hours produced—or whether the work is taking longer than you estimated.</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">MEPTrax Field Control is being built to connect field work with what was estimated in the office.</p>
+	<p class="has-text-align-center meptrax-v5-prose">MEPTrax Field Control is being built to connect what happens in the field back to the work you estimated.</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
-	<p class="has-text-align-center meptrax-v5-prose">See what was accomplished. Compare expected labor with actual labor. Capture delays, changes and problems while they\'re happening.</p>
+	<p class="has-text-align-center meptrax-v5-prose">Instead of simply collecting hours and daily reports, we\'re building Field Control to help you see what work was accomplished, how much labor you expected it to take, and how much labor you\'re actually using.</p>
+	<!-- /wp:paragraph -->
+	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-prose"} -->
+	<p class="has-text-align-center meptrax-v5-prose">Delays, problems and field changes can be captured as they happen, so you can understand why the numbers are changing—not just discover later that they changed.</p>
 	<!-- /wp:paragraph -->
 	<!-- wp:paragraph {"align":"center","className":"meptrax-v5-pull"} -->
 	<p class="has-text-align-center meptrax-v5-pull">Find out where the labor is going while there\'s still time to do something about it.</p>
