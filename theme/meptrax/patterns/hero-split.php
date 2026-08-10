@@ -42,11 +42,11 @@ return array(
 			<!-- /wp:list -->
 
 			<!-- wp:paragraph {"className":"meptrax-hero-bridge"} -->
-			<p class="meptrax-hero-bridge">MEPTrax is being built to connect estimating, field performance and your actual costs—so you can answer those questions with your company\'s numbers, not somebody else\'s averages.</p>
+			<p class="meptrax-hero-bridge">MEPTrax connects estimating, field performance and your actual costs—so you can see what\'s making you money, what\'s costing you money, and why.</p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph {"className":"meptrax-hero-start"} -->
-			<p class="meptrax-hero-start">We\'re starting with Takeoff.</p>
+			<p class="meptrax-hero-start">We\'re starting with MEPTrax Takeoff.</p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph {"className":"meptrax-hero-tagline"} -->
