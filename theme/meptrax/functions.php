@@ -10,6 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once get_template_directory() . '/inc/theme-settings.php';
+require_once get_template_directory() . '/inc/depth-page.php';
 
 /**
  * Theme setup.

@@ -1298,15 +1298,94 @@ body.meptrax-landing-page .meptrax-front-main {
   max-width: none;
 }
 
-.meptrax-v5-section--takeoff-econ,
-.meptrax-v5-section--transition,
-.meptrax-v5-section--honesty {
-  background: #f8fafc;
+/* --------------------------------------------------------------------------
+   Homepage scroll atmosphere (visual-only)
+   Blueprint (hero) → Work → Information → Connections → Clarity
+   Text first: textures stay near-subconscious; no layout height impact.
+   -------------------------------------------------------------------------- */
+
+/* 1 Product path — clean white transition out of hero */
+.meptrax-v5-section--products {
+  background: #fff;
 }
 
-.meptrax-v5-section--knowledge,
+/* Shared faint technical grid (navy @ ultra-low opacity) */
+.meptrax-v5-section--takeoff-econ,
+.meptrax-v5-section--knowledge {
+  background-repeat: repeat;
+  background-size: 56px 56px;
+}
+
+/* 2–3 Takeoff / bidding chapters — work (pale blue-gray + faint grid) */
+.meptrax-v5-section--takeoff-econ {
+  background-color: #f4f7fb;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath d='M0 28h56M28 0v56' fill='none' stroke='%23001f3f' stroke-opacity='0.04' stroke-width='0.75'/%3E%3C/svg%3E");
+}
+
+.meptrax-v5-section--knowledge {
+  background-color: #ffffff;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath d='M0 28h56M28 0v56' fill='none' stroke='%23001f3f' stroke-opacity='0.028' stroke-width='0.75'/%3E%3C/svg%3E");
+}
+
+/* 4 Transition — continuity / path forward (not a workflow diagram) */
+.meptrax-v5-section--transition {
+  background-color: #f3f7fb;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 420' preserveAspectRatio='none'%3E%3Cpath d='M0 230 C200 190 300 270 500 215 S820 165 1200 210' fill='none' stroke='%23001f3f' stroke-opacity='0.055' stroke-width='1.25'/%3E%3Cpath d='M0 255 C220 220 320 285 520 240 S840 200 1200 245' fill='none' stroke='%23001f3f' stroke-opacity='0.035' stroke-width='1'/%3E%3C/svg%3E"),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M0 32h64M32 0v64' fill='none' stroke='%23001f3f' stroke-opacity='0.022' stroke-width='0.75'/%3E%3C/svg%3E");
+  background-size: 100% 100%, 64px 64px;
+  background-position: center, 0 0;
+  background-repeat: no-repeat, repeat;
+}
+
+/* 5 Business question cards — tinted field so white cards lift */
 .meptrax-v5-section--biz-buttons {
-  background: #fff;
+  background-color: #eef3f8;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M0 36h72M36 0v72' fill='none' stroke='%23001f3f' stroke-opacity='0.03' stroke-width='0.75'/%3E%3C/svg%3E");
+  background-size: 72px 72px;
+  background-repeat: repeat;
+}
+
+/* 6 Operational Awareness — restrained blue field + faint relationships
+   Desktop motif ~20% stronger than initial atmosphere pass; still atmospheric.
+   Mobile reverts motif opacity to original intensity. */
+.meptrax-v5-section--awareness {
+  background-color: #e6eef7;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 900' preserveAspectRatio='xMidYMid slice'%3E%3Cg fill='none' stroke='%23001f3f' stroke-opacity='0.066' stroke-width='1.05'%3E%3Cpath d='M160 220C290 185 400 265 520 235'/%3E%3Cpath d='M520 235C650 205 740 310 900 275'/%3E%3Cpath d='M240 520C390 455 560 540 760 470'/%3E%3Cpath d='M420 390C500 430 580 360 700 400'/%3E%3C/g%3E%3Cg fill='%23001f3f' fill-opacity='0.078'%3E%3Ccircle cx='160' cy='220' r='3'/%3E%3Ccircle cx='520' cy='235' r='3.5'/%3E%3Ccircle cx='900' cy='275' r='3'/%3E%3Ccircle cx='240' cy='520' r='2.5'/%3E%3Ccircle cx='760' cy='470' r='3'/%3E%3Ccircle cx='700' cy='400' r='2.5'/%3E%3C/g%3E%3Cg fill='none' stroke='%23001f3f' stroke-opacity='0.048' stroke-width='1'/%3E%3Ccircle cx='520' cy='235' r='20'/%3E%3Ccircle cx='760' cy='470' r='16'/%3E%3C/g%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(230, 238, 247, 0.3) 0%, rgba(230, 238, 247, 0.9) 55%, #e6eef7 100%);
+  background-size: cover, auto;
+  background-position: center 40%, 0 0;
+  background-repeat: no-repeat, no-repeat;
+}
+
+/* 7 Product reality — return to clarity / light */
+.meptrax-v5-section--honesty {
+  background-color: #fbfcfe;
+  background-image: none;
+}
+
+/* Mobile: keep textures atmospheric, never busy */
+@media (max-width: 768px) {
+  .meptrax-v5-section--takeoff-econ,
+  .meptrax-v5-section--knowledge,
+  .meptrax-v5-section--biz-buttons {
+    background-size: 48px 48px;
+  }
+
+  .meptrax-v5-section--transition {
+    background-size: 160% 100%, 48px 48px;
+    background-position: center, 0 0;
+  }
+
+  /* OA: restore original relationship-motif intensity on small screens */
+  .meptrax-v5-section--awareness {
+    background-image:
+      url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 900' preserveAspectRatio='xMidYMid slice'%3E%3Cg fill='none' stroke='%23001f3f' stroke-opacity='0.055' stroke-width='1'%3E%3Cpath d='M160 220C290 185 400 265 520 235'/%3E%3Cpath d='M520 235C650 205 740 310 900 275'/%3E%3Cpath d='M240 520C390 455 560 540 760 470'/%3E%3Cpath d='M420 390C500 430 580 360 700 400'/%3E%3C/g%3E%3Cg fill='%23001f3f' fill-opacity='0.065'%3E%3Ccircle cx='160' cy='220' r='3'/%3E%3Ccircle cx='520' cy='235' r='3.5'/%3E%3Ccircle cx='900' cy='275' r='3'/%3E%3Ccircle cx='240' cy='520' r='2.5'/%3E%3Ccircle cx='760' cy='470' r='3'/%3E%3Ccircle cx='700' cy='400' r='2.5'/%3E%3C/g%3E%3Cg fill='none' stroke='%23001f3f' stroke-opacity='0.04' stroke-width='1'%3E%3Ccircle cx='520' cy='235' r='20'/%3E%3Ccircle cx='760' cy='470' r='16'/%3E%3C/g%3E%3C/svg%3E"),
+      linear-gradient(180deg, rgba(230, 238, 247, 0.35) 0%, rgba(230, 238, 247, 0.92) 55%, #e6eef7 100%);
+    background-size: 140% auto, auto;
+    background-position: center 35%, 0 0;
+  }
 }
 
 .meptrax-biz-grid {

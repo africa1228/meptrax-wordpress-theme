@@ -1,0 +1,178 @@
+/**
+ * MEPTrax shared depth-page atmospheric system.
+ *
+ * Visual foundation: Connected Operations (Concept B)
+ * Plan/takeoff exception: Technical Blueprint (Concept A) via --blueprint
+ * Narrative behavior: progressive development (Concept D)
+ *
+ * Primitives (meptrax- prefix matches theme conventions):
+ *   .meptrax-depth-section
+ *   .meptrax-depth-section--plain | --soft | --blueprint | --path
+ *   .meptrax-depth-section--connected | --culmination | --clarity
+ *
+ * @package MEPtrax
+ */
+
+:root {
+  --meptrax-depth-plain: #ffffff;
+  --meptrax-depth-soft: #f8fafc;
+  --meptrax-depth-pale: #f4f7fb;
+  --meptrax-depth-tint: #eef3f8;
+  --meptrax-depth-culmination: #e6eef7;
+  --meptrax-depth-clarity: #fbfcfe;
+  --meptrax-depth-content-max: 42rem;
+}
+
+body.meptrax-depth-page {
+  background: var(--meptrax-depth-plain);
+}
+
+/* Full-bleed sections inside constrained post content */
+.meptrax-depth-section {
+  box-sizing: border-box;
+  width: 100vw;
+  max-width: 100vw;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  padding: 2.75rem max(1.35rem, calc((100vw - 720px) / 2));
+  overflow-x: clip;
+  background-color: var(--meptrax-depth-plain);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.meptrax-depth-section > * {
+  max-width: var(--meptrax-depth-content-max);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Keep wide cards (product grids etc.) from being force-narrowed incorrectly —
+   children are primarily flow headings/paragraphs; card groups already constrain. */
+.meptrax-depth-section > .wp-block-group,
+.meptrax-depth-section > .wp-block-columns {
+  max-width: min(52rem, 100%);
+}
+
+/* ----- Motifs (centralized; no per-page URIs) ----- */
+.meptrax-depth-section {
+  --meptrax-mot-grid: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath d='M0 28h56M28 0v56' fill='none' stroke='%23001f3f' stroke-opacity='0.04' stroke-width='0.75'/%3E%3C/svg%3E");
+  --meptrax-mot-grid-soft: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath d='M0 28h56M28 0v56' fill='none' stroke='%23001f3f' stroke-opacity='0.028' stroke-width='0.75'/%3E%3C/svg%3E");
+  --meptrax-mot-grid-faint: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='72' height='72' viewBox='0 0 72 72'%3E%3Cpath d='M0 36h72M36 0v72' fill='none' stroke='%23001f3f' stroke-opacity='0.022' stroke-width='0.75'/%3E%3C/svg%3E");
+  --meptrax-mot-blueprint: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 960 640' fill='none'%3E%3Cg stroke='%23001f3f' stroke-opacity='0.042' stroke-width='0.9'%3E%3Cpath d='M0 80h960M0 160h960M0 240h960M0 320h960M0 400h960M0 480h960M0 560h960'/%3E%3Cpath d='M80 0v640M160 0v640M240 0v640M320 0v640M400 0v640M480 0v640M560 0v640M640 0v640M720 0v640M800 0v640M880 0v640'/%3E%3C/g%3E%3Crect x='180' y='120' width='260' height='170' stroke='%23001f3f' stroke-opacity='0.055' stroke-width='1.2'/%3E%3Crect x='520' y='200' width='200' height='140' stroke='%23001f3f' stroke-opacity='0.045' stroke-width='1'/%3E%3Cpath d='M280 420l140-60 100-100 120 80-80 140-160-20z' stroke='%23001f3f' stroke-opacity='0.045' stroke-width='1.1'/%3E%3C/svg%3E");
+  --meptrax-mot-path: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 420' preserveAspectRatio='none'%3E%3Cpath d='M0 230C200 190 300 270 500 215S820 165 1200 210' fill='none' stroke='%23001f3f' stroke-opacity='0.05' stroke-width='1.2'/%3E%3Cpath d='M0 255C220 220 320 285 520 240S840 200 1200 245' fill='none' stroke='%23001f3f' stroke-opacity='0.032' stroke-width='1'/%3E%3C/svg%3E");
+  --meptrax-mot-relations: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 900' preserveAspectRatio='xMidYMid slice'%3E%3Cg fill='none' stroke='%23001f3f' stroke-opacity='0.066' stroke-width='1.05'%3E%3Cpath d='M160 220C290 185 400 265 520 235'/%3E%3Cpath d='M520 235C650 205 740 310 900 275'/%3E%3Cpath d='M240 520C390 455 560 540 760 470'/%3E%3Cpath d='M420 390C500 430 580 360 700 400'/%3E%3C/g%3E%3Cg fill='%23001f3f' fill-opacity='0.078'%3E%3Ccircle cx='160' cy='220' r='3'/%3E%3Ccircle cx='520' cy='235' r='3.5'/%3E%3Ccircle cx='900' cy='275' r='3'/%3E%3Ccircle cx='240' cy='520' r='2.5'/%3E%3Ccircle cx='760' cy='470' r='3'/%3E%3Ccircle cx='700' cy='400' r='2.5'/%3E%3C/g%3E%3Cg fill='none' stroke='%23001f3f' stroke-opacity='0.048' stroke-width='1'%3E%3Ccircle cx='520' cy='235' r='18'/%3E%3Ccircle cx='760' cy='470' r='14'/%3E%3C/g%3E%3C/svg%3E");
+  --meptrax-mot-relations-soft: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 900' preserveAspectRatio='xMidYMid slice'%3E%3Cg fill='none' stroke='%23001f3f' stroke-opacity='0.045' stroke-width='1'%3E%3Cpath d='M160 220C290 185 400 265 520 235'/%3E%3Cpath d='M520 235C650 205 740 310 900 275'/%3E%3Cpath d='M240 520C390 455 560 540 760 470'/%3E%3Cpath d='M420 390C500 430 580 360 700 400'/%3E%3C/g%3E%3Cg fill='%23001f3f' fill-opacity='0.05'%3E%3Ccircle cx='160' cy='220' r='2.5'/%3E%3Ccircle cx='520' cy='235' r='3'/%3E%3Ccircle cx='900' cy='275' r='2.5'/%3E%3Ccircle cx='760' cy='470' r='2.5'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+/* ----- Primitives ----- */
+
+.meptrax-depth-section--plain {
+  background-color: var(--meptrax-depth-plain);
+  background-image: none;
+}
+
+.meptrax-depth-section--soft {
+  background-color: var(--meptrax-depth-soft);
+}
+
+.meptrax-depth-section--blueprint {
+  background-color: var(--meptrax-depth-pale);
+  background-image: var(--meptrax-mot-blueprint), var(--meptrax-mot-grid);
+  background-size: min(900px, 105%) auto, 56px 56px;
+  background-position: 108% 12%, 0 0;
+  background-repeat: no-repeat, repeat;
+}
+
+.meptrax-depth-section--path {
+  background-color: var(--meptrax-depth-pale);
+  background-image: var(--meptrax-mot-path), var(--meptrax-mot-grid-faint);
+  background-size: 100% 100%, 72px 72px;
+  background-position: center, 0 0;
+  background-repeat: no-repeat, repeat;
+}
+
+.meptrax-depth-section--connected {
+  background-color: var(--meptrax-depth-tint);
+  background-image: var(--meptrax-mot-relations-soft), var(--meptrax-mot-path);
+  background-size: cover, 100% 80%;
+  background-position: center 40%, center 30%;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.meptrax-depth-section--culmination {
+  background-color: var(--meptrax-depth-culmination);
+  background-image:
+    var(--meptrax-mot-relations),
+    linear-gradient(180deg, rgba(230, 238, 247, 0.25) 0%, rgba(230, 238, 247, 0.9) 62%, #e6eef7 100%);
+  background-size: cover, auto;
+  background-position: center 38%, 0 0;
+  background-repeat: no-repeat, no-repeat;
+}
+
+.meptrax-depth-section--clarity {
+  background-color: var(--meptrax-depth-clarity);
+  background-image: none;
+}
+
+/* Depth page typography polish (content-dominant; existing type stack) */
+body.meptrax-depth-page .meptrax-depth-section .wp-block-heading {
+  color: var(--meptrax-navy, #001f3f);
+  letter-spacing: -0.015em;
+}
+
+body.meptrax-depth-page .meptrax-depth-section p {
+  color: #475569;
+  line-height: 1.65;
+}
+
+/* Products: keep card fields clean against soft/path */
+body.meptrax-depth-page--products .meptrax-depth-section--path {
+  background-image: var(--meptrax-mot-path);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+/* Mobile: Concept B preference — simplify motifs, keep field rhythm */
+@media (max-width: 768px) {
+  .meptrax-depth-section {
+    padding-top: 2.25rem;
+    padding-bottom: 2.25rem;
+    width: 100%;
+    max-width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .meptrax-depth-section--blueprint {
+    background-image: var(--meptrax-mot-grid-soft);
+    background-size: 48px 48px;
+    background-repeat: repeat;
+    background-position: 0 0;
+  }
+
+  .meptrax-depth-section--soft {
+    background-image: none;
+  }
+
+  .meptrax-depth-section--path {
+    background-image: var(--meptrax-mot-path);
+    background-size: 160% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .meptrax-depth-section--connected {
+    background-image: var(--meptrax-mot-relations-soft);
+    background-size: 150% auto;
+    background-position: center 30%;
+  }
+
+  .meptrax-depth-section--culmination {
+    background-image:
+      var(--meptrax-mot-relations-soft),
+      linear-gradient(180deg, rgba(230, 238, 247, 0.4) 0%, #e6eef7 75%);
+    background-size: 145% auto, auto;
+    background-position: center 28%, 0 0;
+  }
+}
