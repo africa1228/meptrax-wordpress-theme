@@ -787,6 +787,30 @@ function meptrax_depth_sectionize_content( $content ) {
 add_filter( 'the_content', 'meptrax_depth_sectionize_content', 12 );
 
 /**
+ * Load theme-owned header/footer markup (placeholders resolved).
+ *
+ * @param string $slug header|footer.
+ * @return string|null
+ */
+function meptrax_theme_shell_part_content( $slug ) {
+	if ( ! in_array( $slug, array( 'header', 'footer' ), true ) ) {
+		return null;
+	}
+
+	$file = get_template_directory() . '/parts/' . $slug . '.html';
+	if ( ! is_readable( $file ) ) {
+		return null;
+	}
+
+	$raw = file_get_contents( $file );
+	if ( false === $raw || $raw === '' ) {
+		return null;
+	}
+
+	return meptrax_replace_url_placeholders( $raw );
+}
+
+/**
  * Prefer theme file header/footer over Site Editor customizations so
  * deployable theme files own primary site-shell IA.
  *
@@ -796,30 +820,36 @@ add_filter( 'the_content', 'meptrax_depth_sectionize_content', 12 );
  * @return WP_Block_Template|null
  */
 function meptrax_prefer_theme_shell_template_parts( $block_template, $id, $template_type ) {
-	if ( 'wp_template_part' !== $template_type || ! $block_template instanceof WP_Block_Template ) {
+	if ( 'wp_template_part' !== $template_type || ! $block_template ) {
 		return $block_template;
 	}
 
-	if ( ! in_array( $block_template->slug, array( 'header', 'footer' ), true ) ) {
+	$slug = '';
+	if ( is_object( $block_template ) && ! empty( $block_template->slug ) ) {
+		$slug = (string) $block_template->slug;
+	} elseif ( is_string( $id ) && str_contains( $id, '//' ) ) {
+		$parts = explode( '//', $id, 2 );
+		$slug  = $parts[1] ?? '';
+	}
+
+	if ( ! in_array( $slug, array( 'header', 'footer' ), true ) ) {
 		return $block_template;
 	}
 
-	$file = get_template_directory() . '/parts/' . $block_template->slug . '.html';
-	if ( ! is_readable( $file ) ) {
+	$raw = meptrax_theme_shell_part_content( $slug );
+	if ( null === $raw ) {
 		return $block_template;
 	}
 
-	$raw = file_get_contents( $file );
-	if ( false === $raw || $raw === '' ) {
-		return $block_template;
+	if ( is_object( $block_template ) ) {
+		$block_template->content = $raw;
+		$block_template->source  = 'theme';
 	}
-
-	$block_template->content = meptrax_replace_url_placeholders( $raw );
-	$block_template->source  = 'theme';
 
 	return $block_template;
 }
 add_filter( 'get_block_template', 'meptrax_prefer_theme_shell_template_parts', 99, 3 );
+add_filter( 'get_block_file_template', 'meptrax_prefer_theme_shell_template_parts', 99, 3 );
 
 /**
  * Same override when WP queries a list of templates (editor/preview paths).
@@ -835,12 +865,40 @@ function meptrax_prefer_theme_shell_template_parts_list( $query_result, $query, 
 	}
 
 	foreach ( $query_result as $i => $tpl ) {
-		if ( ! $tpl instanceof WP_Block_Template ) {
+		if ( ! is_object( $tpl ) ) {
 			continue;
 		}
-		$query_result[ $i ] = meptrax_prefer_theme_shell_template_parts( $tpl, $tpl->id, $template_type );
+		$query_result[ $i ] = meptrax_prefer_theme_shell_template_parts( $tpl, $tpl->id ?? '', $template_type );
 	}
 
 	return $query_result;
 }
 add_filter( 'get_block_templates', 'meptrax_prefer_theme_shell_template_parts_list', 99, 3 );
+
+/**
+ * Final render authority: always paint theme header/footer template parts from files.
+ * Site Editor customizations may still store older IA in the DB; production shell
+ * must follow deployable parts/header.html and parts/footer.html.
+ *
+ * @param string               $block_content Block HTML.
+ * @param array<string,mixed>  $block         Parsed block.
+ * @return string
+ */
+function meptrax_render_theme_shell_template_parts( $block_content, $block ) {
+	if ( ( $block['blockName'] ?? '' ) !== 'core/template-part' ) {
+		return $block_content;
+	}
+
+	$slug = isset( $block['attrs']['slug'] ) ? (string) $block['attrs']['slug'] : '';
+	if ( ! in_array( $slug, array( 'header', 'footer' ), true ) ) {
+		return $block_content;
+	}
+
+	$raw = meptrax_theme_shell_part_content( $slug );
+	if ( null === $raw ) {
+		return $block_content;
+	}
+
+	return do_blocks( $raw );
+}
+add_filter( 'render_block', 'meptrax_render_theme_shell_template_parts', 5, 2 );
