@@ -731,9 +731,8 @@ body.meptrax-landing-page .meptrax-front-main {
     display: none !important;
   }
 
-  /* Overlay chrome (close “X”) is mobile-only */
-  .meptrax-header .wp-block-navigation__responsive-container-close,
-  .meptrax-header .wp-block-navigation__responsive-close {
+  /* Close control button only — NOT .responsive-close (WP wraps the whole menu there) */
+  .meptrax-header .wp-block-navigation__responsive-container-close {
     display: none !important;
   }
 
