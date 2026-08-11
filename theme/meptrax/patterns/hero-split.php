@@ -28,7 +28,7 @@ return array(
 			<!-- /wp:paragraph -->
 
 			<!-- wp:heading {"level":1,"className":"meptrax-hero-title-stack"} -->
-			<h1 class="wp-block-heading meptrax-hero-title-stack">Know what you bid.<br>Know what\'s happening.<br>Know what you actually made.</h1>
+			<h1 class="wp-block-heading meptrax-hero-title-stack">Know what you bid.<br>Know what\'s happening.<br>Know your actual profit.</h1>
 			<!-- /wp:heading -->
 
 			<!-- wp:paragraph {"className":"meptrax-hero-lead"} -->
@@ -36,7 +36,7 @@ return array(
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph {"className":"meptrax-hero-lead"} -->
-			<p class="meptrax-hero-lead">MEPTrax is being built to connect the story — from the work you count, to what you sell, to what actually happens, to what you ultimately make.</p>
+			<p class="meptrax-hero-lead">MEPTrax is being built to connect the story — from the work you count, to what you sell, to what actually happens, to your actual profit.</p>
 			<!-- /wp:paragraph -->
 
 			<!-- wp:paragraph {"className":"meptrax-hero-start"} -->

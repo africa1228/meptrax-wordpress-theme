@@ -333,11 +333,8 @@
   margin-bottom: 1.15rem;
 }
 
-/* Desktop canvas: room for pairs without stretching prose measure */
-body.meptrax-depth-page .meptrax-depth-section {
-  padding-left: max(1.35rem, calc((100vw - 1100px) / 2 + 1.35rem));
-  padding-right: max(1.35rem, calc((100vw - 1100px) / 2 + 1.35rem));
-}
+/* Canvas horizontal inset lives on .meptrax-depth-section (shared depth.css).
+   Editorial owns composition only — do not reintroduce asymmetric padding. */
 
 /* Mobile: stack all pairs */
 @media (max-width: 768px) {

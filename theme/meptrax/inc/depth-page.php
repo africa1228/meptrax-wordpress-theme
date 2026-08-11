@@ -785,3 +785,62 @@ function meptrax_depth_sectionize_content( $content ) {
 	return $out !== '' ? $out : $content;
 }
 add_filter( 'the_content', 'meptrax_depth_sectionize_content', 12 );
+
+/**
+ * Prefer theme file header/footer over Site Editor customizations so
+ * deployable theme files own primary site-shell IA.
+ *
+ * @param WP_Block_Template|null $block_template Template object.
+ * @param string                 $id             Template id.
+ * @param string                 $template_type  Type.
+ * @return WP_Block_Template|null
+ */
+function meptrax_prefer_theme_shell_template_parts( $block_template, $id, $template_type ) {
+	if ( 'wp_template_part' !== $template_type || ! $block_template instanceof WP_Block_Template ) {
+		return $block_template;
+	}
+
+	if ( ! in_array( $block_template->slug, array( 'header', 'footer' ), true ) ) {
+		return $block_template;
+	}
+
+	$file = get_template_directory() . '/parts/' . $block_template->slug . '.html';
+	if ( ! is_readable( $file ) ) {
+		return $block_template;
+	}
+
+	$raw = file_get_contents( $file );
+	if ( false === $raw || $raw === '' ) {
+		return $block_template;
+	}
+
+	$block_template->content = meptrax_replace_url_placeholders( $raw );
+	$block_template->source  = 'theme';
+
+	return $block_template;
+}
+add_filter( 'get_block_template', 'meptrax_prefer_theme_shell_template_parts', 99, 3 );
+
+/**
+ * Same override when WP queries a list of templates (editor/preview paths).
+ *
+ * @param WP_Block_Template[] $query_result  Templates.
+ * @param array               $query         Query.
+ * @param string              $template_type Type.
+ * @return WP_Block_Template[]
+ */
+function meptrax_prefer_theme_shell_template_parts_list( $query_result, $query, $template_type ) {
+	if ( 'wp_template_part' !== $template_type || ! is_array( $query_result ) ) {
+		return $query_result;
+	}
+
+	foreach ( $query_result as $i => $tpl ) {
+		if ( ! $tpl instanceof WP_Block_Template ) {
+			continue;
+		}
+		$query_result[ $i ] = meptrax_prefer_theme_shell_template_parts( $tpl, $tpl->id, $template_type );
+	}
+
+	return $query_result;
+}
+add_filter( 'get_block_templates', 'meptrax_prefer_theme_shell_template_parts_list', 99, 3 );

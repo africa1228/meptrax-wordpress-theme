@@ -105,7 +105,7 @@ add_action( 'init', 'meptrax_register_block_patterns' );
  */
 function meptrax_pre_get_document_title( $title ) {
 	if ( is_front_page() ) {
-		return 'MEPTrax | Know What You Bid. Know What\'s Happening. Know What You Actually Made.';
+		return 'MEPTrax | Know What You Bid. Know What\'s Happening. Know Your Actual Profit.';
 	}
 
 	return $title;
@@ -122,7 +122,7 @@ function meptrax_front_page_meta() {
 	}
 
 	$description = 'Software built for electrical contractors. Start with MEPTrax Takeoff—available now. Quote is releasing soon. Business is in development. 30-day free trial. No credit card required.';
-	$title       = 'MEPTrax | Know What You Bid. Know What\'s Happening. Know What You Actually Made.';
+	$title       = 'MEPTrax | Know What You Bid. Know What\'s Happening. Know Your Actual Profit.';
 	$url         = home_url( '/' );
 
 	echo '<meta name="description" content="' . esc_attr( $description ) . '" />' . "\n";
