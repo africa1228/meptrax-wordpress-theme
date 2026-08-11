@@ -96,6 +96,18 @@ body.meptrax-landing-page .wp-site-blocks {
   padding-top: 0;
 }
 
+/*
+ * WordPress roots top-level blocks with margin-block-start: 24px. Our site
+ * header template part is position:fixed (zero in-flow height), so that gap
+ * would leave a white strip above the homepage hero and stack with interior
+ * content padding. Zero only the sibling after the header part.
+ */
+.wp-site-blocks > .wp-block-template-part + *,
+.wp-site-blocks > header.wp-block-template-part + * {
+  margin-block-start: 0 !important;
+  margin-top: 0 !important;
+}
+
 .meptrax-header__inner {
   display: grid;
   grid-template-columns: auto 1fr auto;
