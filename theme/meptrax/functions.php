@@ -44,12 +44,25 @@ function meptrax_enqueue_assets() {
 		null
 	);
 
+	$theme_version = wp_get_theme()->get( 'Version' );
+
 	wp_enqueue_style(
 		'meptrax-theme',
 		get_template_directory_uri() . '/assets/css/theme.css',
 		array( 'meptrax-inter' ),
-		wp_get_theme()->get( 'Version' )
+		$theme_version
 	);
+
+	// Homepage only: translucent header becomes more opaque after scroll.
+	if ( is_front_page() ) {
+		wp_enqueue_script(
+			'meptrax-header-scroll',
+			get_template_directory_uri() . '/assets/js/header-scroll.js',
+			array(),
+			$theme_version,
+			true
+		);
+	}
 }
 add_action( 'wp_enqueue_scripts', 'meptrax_enqueue_assets' );
 add_action( 'enqueue_block_editor_assets', 'meptrax_enqueue_assets' );

@@ -8,10 +8,12 @@
   --meptrax-blue: #2563eb;
   --meptrax-radius: 8px;
   --meptrax-split: 50%;
+  /* Fixed bar metrics — same on every page so header chrome never jumps */
   --meptrax-header-height: 5.5rem;
+  --meptrax-header-pad-y: 0.85rem;
+  --meptrax-header-pad-x: 1.5rem;
   --meptrax-header-content-inset: max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem));
-  --meptrax-header-logo-shift: clamp(6.5rem, 14vw, 10.5rem);
-  --meptrax-header-nav-gap: clamp(1.25rem, 2.5vw, 2.25rem);
+  --meptrax-header-nav-gap: 0.75rem;
 }
 
 html {
@@ -25,39 +27,92 @@ body {
   max-width: 100%;
 }
 
-/* ----- Header ----- */
+/*
+ * Global site header — presentation authority only.
+ * Structure lives in the WordPress Header template part (Site Editor may
+ * customize it; parts/header.html is the theme default/fallback only).
+ *
+ * Geometry is identical on every page: fixed height, same inset, brand | nav
+ * | CTAs. Surfaces differ by context (home glass over hero vs frosted interior),
+ * never by changing layout metrics.
+ *
+ * Homepage overlay is real: header is fixed over the landing shell whose
+ * backdrop starts at y=0. No negative-margin hero hacks.
+ */
 .meptrax-header {
-  padding: 0.85rem 1.5rem;
-  position: relative;
-  z-index: 200;
-}
-
-body:not(.meptrax-landing-page) .meptrax-header {
-  background: #fff;
-  border-bottom: 1px solid #e2e8f0;
-  position: sticky;
-  top: 0;
-}
-
-body.meptrax-landing-page .meptrax-header {
-  background: transparent;
-  border-bottom: none;
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
-  padding-left: 0;
-  padding-right: 0;
+  z-index: 200;
+  box-sizing: border-box;
+  height: var(--meptrax-header-height);
+  min-height: var(--meptrax-header-height);
+  max-height: var(--meptrax-header-height);
+  padding: var(--meptrax-header-pad-y) var(--meptrax-header-pad-x);
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color 0.22s ease,
+    border-color 0.22s ease,
+    -webkit-backdrop-filter 0.22s ease,
+    backdrop-filter 0.22s ease;
+}
+
+/* Interior / default surface: frosted, readable on plain content */
+body:not(.meptrax-landing-page) .meptrax-header {
+  background: rgba(255, 255, 255, 0.94);
+  -webkit-backdrop-filter: saturate(1.15) blur(10px);
+  backdrop-filter: saturate(1.15) blur(10px);
+  border-bottom-color: #e2e8f0;
+}
+
+/*
+ * Homepage: translucent glass so the hero blueprint remains visible under
+ * logo/nav/controls. Geometry matches interior.
+ */
+body.meptrax-landing-page .meptrax-header {
+  background: rgba(255, 255, 255, 0.22);
+  -webkit-backdrop-filter: saturate(1.1) blur(10px);
+  backdrop-filter: saturate(1.1) blur(10px);
+  border-bottom-color: rgba(226, 232, 240, 0.35);
+}
+
+/* After scroll, same geometry with opaque surface for readability */
+body.meptrax-landing-page.meptrax-header-scrolled .meptrax-header {
+  background: rgba(255, 255, 255, 0.94);
+  -webkit-backdrop-filter: saturate(1.15) blur(12px);
+  backdrop-filter: saturate(1.15) blur(12px);
+  border-bottom-color: #e2e8f0;
+}
+
+/* Interior content clears the fixed bar. Homepage root does not — hero starts at y=0. */
+body:not(.meptrax-landing-page) .wp-site-blocks {
+  padding-top: var(--meptrax-header-height);
+}
+
+body.meptrax-landing-page .wp-site-blocks {
+  padding-top: 0;
 }
 
 .meptrax-header__inner {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  grid-template-columns: auto 1fr auto;
   align-items: center;
-  gap: 1.5rem;
+  column-gap: var(--meptrax-header-nav-gap);
+  row-gap: 0;
   max-width: 1200px;
+  width: 100%;
   margin: 0 auto;
-  min-height: calc(var(--meptrax-header-height) - 1.7rem);
+  min-height: 0;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Flatten brand+nav wrapper so grid places brand | nav | buttons */
+.meptrax-header__light {
+  display: contents;
 }
 
 .meptrax-header__brand {
@@ -66,7 +121,11 @@ body.meptrax-landing-page .meptrax-header {
   gap: 0.65rem;
   min-width: 0;
   flex: 0 0 auto;
+  grid-column: 1;
+  grid-row: 1;
   justify-self: start;
+  margin: 0;
+  padding: 0;
 }
 
 .meptrax-header__brand .meptrax-site-logo,
@@ -86,15 +145,15 @@ body.meptrax-landing-page .meptrax-header {
   display: block;
   width: auto !important;
   height: auto !important;
-  max-width: min(336px, 46vw) !important;
-  max-height: 86px !important;
+  max-width: min(280px, 42vw) !important;
+  max-height: 56px !important;
   object-fit: contain !important;
   object-position: left center;
 }
 
 .meptrax-header__brand .meptrax-default-logo img {
-  max-width: 58px !important;
-  max-height: 58px !important;
+  max-width: 48px !important;
+  max-height: 48px !important;
 }
 
 body.meptrax-has-wordmark .meptrax-header__titles {
@@ -129,9 +188,14 @@ body.meptrax-has-wordmark .meptrax-header__titles {
 }
 
 .meptrax-header__nav {
+  grid-column: 2;
+  grid-row: 1;
   justify-self: center;
-  flex: 1 1 auto;
   min-width: 0;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: visible;
 }
 
 /* Ensure primary nav is horizontal (WP block styles usually set this; force reliable shell) */
@@ -149,10 +213,6 @@ body.meptrax-has-wordmark .meptrax-header__titles {
 .meptrax-nav .wp-block-navigation-item {
   list-style: none;
   margin: 0;
-}
-
-.meptrax-header__light {
-  display: contents;
 }
 
 .meptrax-nav .wp-block-navigation-item__content {
@@ -223,69 +283,15 @@ body.meptrax-has-wordmark .meptrax-header__titles {
   flex-wrap: nowrap;
   align-items: center;
   gap: 0.6rem;
+  grid-column: 3;
+  grid-row: 1;
   justify-self: end;
+  margin: 0;
+  padding: 0;
 }
 
 .meptrax-header__buttons .wp-block-button {
   margin: 0;
-}
-
-/* Landing: align header columns to hero split — nav stays light, buttons stay dark */
-body.meptrax-landing-page .meptrax-header__inner {
-  grid-template-columns: var(--meptrax-split) minmax(0, 1fr);
-  gap: 0;
-  max-width: 100%;
-  width: 100%;
-  margin: 0;
-}
-
-body.meptrax-landing-page .meptrax-header__light {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  flex-wrap: nowrap;
-  gap: var(--meptrax-header-nav-gap);
-  grid-column: 1;
-  grid-row: 1;
-  min-width: 0;
-  padding-left: var(--meptrax-header-content-inset);
-  padding-right: 1rem;
-}
-
-body.meptrax-landing-page .meptrax-header__brand {
-  flex: 0 0 auto;
-  margin-left: var(--meptrax-header-logo-shift);
-  padding-left: 0;
-  z-index: 2;
-}
-
-body.meptrax-landing-page .meptrax-header__nav {
-  flex: 0 1 auto;
-  min-width: 0;
-  max-width: none;
-  margin-left: clamp(0.5rem, 1vw, 1rem);
-  padding-right: 0;
-  overflow: visible;
-  z-index: 1;
-}
-
-body.meptrax-landing-page .meptrax-header__nav .wp-block-navigation__container {
-  flex-wrap: nowrap;
-  justify-content: flex-start;
-  gap: 0.15rem;
-}
-
-body.meptrax-landing-page .meptrax-header__nav .wp-block-navigation__responsive-container,
-body.meptrax-landing-page .meptrax-header__nav .wp-block-navigation__responsive-container-content {
-  overflow: visible;
-}
-
-body.meptrax-landing-page .meptrax-header__buttons {
-  grid-column: 2;
-  grid-row: 1;
-  justify-self: end;
-  align-self: center;
-  padding-right: var(--meptrax-header-content-inset);
 }
 
 .meptrax-btn-outline-header .wp-block-button__link,
@@ -296,15 +302,19 @@ body.meptrax-landing-page .meptrax-header__buttons {
   font-weight: 600 !important;
 }
 
+/*
+ * Homepage Log in control: slightly higher contrast over the hero without a
+ * solid header band (structure/geometry identical to interior).
+ */
 body.meptrax-landing-page .meptrax-btn-outline-header .wp-block-button__link {
-  border: 1.5px solid rgba(255, 255, 255, 0.9) !important;
-  background: transparent !important;
-  color: #fff !important;
+  border: 1.5px solid rgba(0, 31, 63, 0.55) !important;
+  background: rgba(255, 255, 255, 0.55) !important;
+  color: var(--meptrax-navy) !important;
 }
 
 body.meptrax-landing-page .meptrax-btn-outline-header .wp-block-button__link:hover {
-  background: rgba(255, 255, 255, 0.12) !important;
-  color: #fff !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  color: var(--meptrax-navy) !important;
 }
 
 body:not(.meptrax-landing-page) .meptrax-btn-outline-header .wp-block-button__link {
@@ -338,7 +348,7 @@ body:not(.meptrax-landing-page) .meptrax-btn-outline-header .wp-block-button__li
   font-size: 1rem !important;
 }
 
-/* ----- Landing shell (shared header + hero backdrop) ----- */
+/* ----- Landing shell: hero image under fixed header (overlay, not in-flow pad on main) ----- */
 body.meptrax-landing-page .meptrax-front-main {
   padding-top: 0;
 }
@@ -346,6 +356,10 @@ body.meptrax-landing-page .meptrax-front-main {
 .meptrax-landing-shell {
   position: relative;
   isolation: isolate;
+  /*
+   * In-flow content clears the fixed header; the absolute backdrop still
+   * paints from the top of this shell (viewport top under the bar).
+   */
   padding-top: var(--meptrax-header-height);
   overflow: hidden;
   max-width: 100%;
@@ -360,13 +374,14 @@ body.meptrax-landing-page .meptrax-front-main {
 
 .meptrax-landing-backdrop {
   position: absolute;
-  top: calc(-1 * var(--meptrax-header-height));
+  top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   width: 100%;
-  margin-left: 0;
-  height: calc(100% + var(--meptrax-header-height));
-  min-height: 640px;
+  margin: 0;
+  height: auto;
+  min-height: max(100%, 640px);
   z-index: 0;
   pointer-events: none;
   background-color: #fff;
@@ -539,102 +554,78 @@ body.meptrax-landing-page .meptrax-front-main {
 
 @media (max-width: 960px) {
   :root {
-    --meptrax-header-height: auto;
-  }
-
-  body.meptrax-landing-page .meptrax-header {
-    position: relative;
-    background: #fff;
-    border-bottom: 1px solid #e2e8f0;
-  }
-
-  .meptrax-landing-shell {
-    padding-top: 0;
-  }
-
-  .meptrax-landing-backdrop {
-    top: 0;
-    min-height: 100%;
-    background-image: url("../images/frontpage-image.png");
-    background-size: cover;
-    background-position: center top;
+    --meptrax-header-pad-y: 0.75rem;
+    --meptrax-header-pad-x: 1rem;
+    /* Keep a fixed bar height so home ↔ interior never vertical-jump */
+    --meptrax-header-height: 4.25rem;
   }
 
   /*
-   * Site-shell mobile: brand left; Log in / CTA; hamburger.
-   * No desktop link row squeezed into the header.
+   * Site-shell mobile: same fixed overlay bar as desktop.
+   * Brand · Log in · hamburger — no link strip.
    */
-  .meptrax-header {
-    padding: 0.75rem 1rem;
-  }
-
-  .meptrax-header__inner,
-  body.meptrax-landing-page .meptrax-header__inner {
+  .meptrax-header__inner {
     display: flex;
     flex-wrap: nowrap;
     align-items: center;
     gap: 0.5rem 0.65rem;
     min-height: 0;
+    height: 100%;
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
     grid-template-columns: none;
   }
 
-  body.meptrax-landing-page .meptrax-header__light,
   .meptrax-header__light {
     display: contents;
   }
 
-  .meptrax-header__brand,
-  body.meptrax-landing-page .meptrax-header__brand {
+  .meptrax-header__brand {
     flex: 1 1 auto;
     min-width: 0;
-    margin-left: 0;
-    padding-left: 0;
+    margin: 0;
+    padding: 0;
     order: 1;
+    grid-column: auto;
+    grid-row: auto;
   }
 
-  .meptrax-header__buttons,
-  body.meptrax-landing-page .meptrax-header__buttons {
+  .meptrax-header__buttons {
     flex: 0 0 auto;
     justify-self: auto;
-    padding-right: 0;
+    padding: 0;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: flex-end;
     gap: 0.4rem;
     max-width: none;
-    margin-right: 0;
+    margin: 0;
     order: 2;
+    grid-column: auto;
+    grid-row: auto;
   }
 
-  .meptrax-header__nav,
-  body.meptrax-landing-page .meptrax-header__nav {
+  .meptrax-header__nav {
     flex: 0 0 auto;
     justify-self: auto;
     max-width: none;
-    margin-left: 0;
-    padding-right: 0;
+    margin: 0;
+    padding: 0;
     overflow: visible;
     order: 3;
-  }
-
-  /* Prefer compact Log in only if space collapses further */
-  body.meptrax-landing-page .meptrax-btn-outline-header .wp-block-button__link {
-    border-color: var(--meptrax-navy) !important;
-    color: var(--meptrax-navy) !important;
-  }
-
-  body.meptrax-landing-page .meptrax-btn-outline-header .wp-block-button__link:hover {
-    background: var(--meptrax-navy) !important;
-    color: #fff !important;
+    grid-column: auto;
+    grid-row: auto;
   }
 
   .meptrax-header__brand .custom-logo,
   .meptrax-header__brand .wp-block-site-logo img {
-    max-width: min(200px, 52vw) !important;
-    max-height: 56px !important;
+    max-width: min(160px, 42vw) !important;
+    max-height: 40px !important;
+  }
+
+  .meptrax-landing-backdrop {
+    background-position: center top;
   }
 
   .meptrax-hero-split {
@@ -1592,11 +1583,31 @@ body.meptrax-landing-page .meptrax-front-main {
   align-items: stretch;
 }
 
+/*
+ * Root cause of vertical stagger: WordPress core layout flow
+ *   .is-layout-flow > * + * { margin-block-start: … }
+ * applies to consecutive direct children. In a 2-col CSS Grid that adds a
+ * top margin to card 2 (and every subsequent card) so row1 tops no longer
+ * share a Y. Spacing between cards is owned only by grid gap.
+ */
+.meptrax-biz-grid > *,
+.meptrax-biz-grid.is-layout-flow > * + *,
+.meptrax-biz-grid.wp-block-group-is-layout-flow > * + * {
+  margin-top: 0 !important;
+  margin-block-start: 0 !important;
+}
+
 .meptrax-biz-grid .meptrax-product-card {
   display: flex;
   flex-direction: column;
   height: 100%;
   box-sizing: border-box;
+  margin-top: 0 !important;
+  margin-block-start: 0 !important;
+  align-self: stretch;
+  transform: none;
+  position: static;
+  top: auto;
 }
 
 /* Keep body text in normal flow; pin CTA to card foot on desktop grid */
