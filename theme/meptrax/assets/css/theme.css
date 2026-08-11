@@ -658,21 +658,55 @@ body.meptrax-landing-page .meptrax-front-main {
 }
 
 /*
- * WP core shows overlay open control below 600px only for overlayMenu:mobile.
- * Align shell breakpoint with layout need (~tablet): show hamburger through 960px.
+ * Responsive Navigation (overlayMenu:mobile):
+ * Desktop (>960px): horizontal Products · Pricing · OA · Support — no hamburger.
+ * Mobile/tablet (≤960px): hamburger + overlay; hide the closed link strip.
+ * WP core open-button default is ~600px; shell extends hamburger through 960px.
  */
 @media (max-width: 960px) {
   .meptrax-header .wp-block-navigation__responsive-container-open:not(.always-shown) {
     display: flex !important;
   }
 
-  /* Hide collapsed/desktop link strip while the overlay is closed */
+  /* Hide closed overlay strip — no desktop links squeezed into phone header */
   .meptrax-header .wp-block-navigation__responsive-container:not(.is-menu-open) {
     display: none !important;
     position: fixed;
   }
 
-  /* Safety: if markup lacks overlay wrapper, never squeeze a row of links */
+  .meptrax-header .wp-block-navigation__responsive-container.is-menu-open {
+    display: flex !important;
+    position: fixed;
+    inset: 0;
+    z-index: 100000;
+    background: #fff !important;
+    color: var(--meptrax-navy) !important;
+  }
+
+  /*
+   * Overlay is a fixed child of the nav. Landing brand uses z-index:2, which would
+   * paint the logo over the menu panel. Raise the open nav stack above brand/CTAs.
+   */
+  .meptrax-header .meptrax-nav:has(.wp-block-navigation__responsive-container.is-menu-open),
+  body.meptrax-landing-page .meptrax-header__nav:has(.wp-block-navigation__responsive-container.is-menu-open) {
+    position: relative;
+    z-index: 300;
+  }
+
+  .meptrax-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-close {
+    position: absolute;
+    top: 0.65rem;
+    right: 0.65rem;
+    z-index: 2;
+  }
+
+  .meptrax-header .wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content {
+    padding: 3.75rem 1.25rem 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Safety: markup without overlay wrapper never paints an inline strip */
   .meptrax-header .meptrax-nav > .wp-block-navigation__container:not(.is-open) {
     display: none !important;
   }
@@ -691,23 +725,41 @@ body.meptrax-landing-page .meptrax-front-main {
 }
 
 @media (min-width: 961px) {
+  /* No hamburger on desktop */
+  .meptrax-header .wp-block-navigation__responsive-container-open,
   .meptrax-header .wp-block-navigation__responsive-container-open:not(.always-shown) {
     display: none !important;
   }
 
-  .meptrax-header .wp-block-navigation__responsive-container:not(.hidden-by-default):not(.is-menu-open) {
+  /* Overlay chrome (close “X”) is mobile-only */
+  .meptrax-header .wp-block-navigation__responsive-container-close,
+  .meptrax-header .wp-block-navigation__responsive-close {
+    display: none !important;
+  }
+
+  /* Horizontal navigation strip */
+  .meptrax-header .wp-block-navigation__responsive-container:not(.is-menu-open) {
     display: block !important;
     position: relative;
     width: 100%;
     z-index: auto;
+    background: transparent !important;
   }
 
+  .meptrax-header .wp-block-navigation__responsive-container-content {
+    display: block !important;
+  }
+
+  .meptrax-header .meptrax-nav .wp-block-navigation__container,
   .meptrax-header .meptrax-nav > .wp-block-navigation__container {
     display: flex !important;
     position: static;
     flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
     padding: 0;
     background: transparent;
+    gap: 0.15rem 0.35rem;
   }
 }
 
@@ -1538,6 +1590,21 @@ body.meptrax-landing-page .meptrax-front-main {
   max-width: 1080px;
   margin: 0 auto;
   width: 100%;
+  align-items: stretch;
+}
+
+.meptrax-biz-grid .meptrax-product-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+/* Keep body text in normal flow; pin CTA to card foot on desktop grid */
+.meptrax-biz-grid .meptrax-product-card > .meptrax-text-cta,
+.meptrax-biz-grid .meptrax-product-card .meptrax-text-cta {
+  margin-top: auto !important;
+  padding-top: 1rem;
 }
 
 .meptrax-biz-grid .meptrax-product-card:last-child:nth-child(odd) {
@@ -1551,6 +1618,19 @@ body.meptrax-landing-page .meptrax-front-main {
 .meptrax-biz-grid .meptrax-product-card h3 {
   font-size: 1.12rem;
   line-height: 1.25;
+}
+
+/* Stacked: natural height, no forced tall empty cards */
+@media (max-width: 768px) {
+  .meptrax-biz-grid .meptrax-product-card {
+    height: auto;
+  }
+
+  .meptrax-biz-grid .meptrax-product-card > .meptrax-text-cta,
+  .meptrax-biz-grid .meptrax-product-card .meptrax-text-cta {
+    margin-top: 0.85rem !important;
+    padding-top: 0;
+  }
 }
 
 .meptrax-oa-sequence {
