@@ -14,6 +14,9 @@
   --meptrax-header-pad-x: 1.5rem;
   --meptrax-header-content-inset: max(1.5rem, calc((100vw - 1200px) / 2 + 1.5rem));
   --meptrax-header-nav-gap: 0.75rem;
+  /* Hero copy clears the overlay bar; backdrop still paints from y=0 */
+  --meptrax-hero-breath: 1.25rem;
+  --meptrax-hero-content-clear: calc(var(--meptrax-header-height) + var(--meptrax-hero-breath));
 }
 
 html {
@@ -56,6 +59,7 @@ body {
   transition:
     background-color 0.22s ease,
     border-color 0.22s ease,
+    box-shadow 0.22s ease,
     -webkit-backdrop-filter 0.22s ease,
     backdrop-filter 0.22s ease;
 }
@@ -66,6 +70,7 @@ body:not(.meptrax-landing-page) .meptrax-header {
   -webkit-backdrop-filter: saturate(1.15) blur(10px);
   backdrop-filter: saturate(1.15) blur(10px);
   border-bottom-color: #e2e8f0;
+  box-shadow: 0 1px 0 rgba(0, 31, 63, 0.06);
 }
 
 /*
@@ -77,6 +82,7 @@ body.meptrax-landing-page .meptrax-header {
   -webkit-backdrop-filter: saturate(1.1) blur(10px);
   backdrop-filter: saturate(1.1) blur(10px);
   border-bottom-color: rgba(226, 232, 240, 0.35);
+  box-shadow: none;
 }
 
 /* After scroll, same geometry with opaque surface for readability */
@@ -85,6 +91,7 @@ body.meptrax-landing-page.meptrax-header-scrolled .meptrax-header {
   -webkit-backdrop-filter: saturate(1.15) blur(12px);
   backdrop-filter: saturate(1.15) blur(12px);
   border-bottom-color: #e2e8f0;
+  box-shadow: 0 1px 0 rgba(0, 31, 63, 0.06);
 }
 
 /* Interior content clears the fixed bar. Homepage root does not — hero starts at y=0. */
@@ -369,19 +376,25 @@ body.meptrax-landing-page .meptrax-front-main {
   position: relative;
   isolation: isolate;
   /*
-   * In-flow content clears the fixed header; the absolute backdrop still
-   * paints from the top of this shell (viewport top under the bar).
+   * In-flow hero content clears the fixed header + breathing room.
+   * Absolute backdrop still paints from the shell top (viewport y=0).
+   * No negative margins.
    */
-  padding-top: var(--meptrax-header-height);
+  padding-top: var(--meptrax-hero-content-clear);
   overflow: hidden;
   max-width: 100%;
 }
 
 .meptrax-front-main,
-.meptrax-header,
 .meptrax-footer {
   max-width: 100%;
   overflow-x: clip;
+}
+
+/* Header must not clip; open Navigation overlay is a fixed full-viewport descendant. */
+.meptrax-header {
+  max-width: 100%;
+  overflow: visible;
 }
 
 .meptrax-landing-backdrop {
@@ -573,6 +586,16 @@ body.meptrax-landing-page .meptrax-front-main {
   }
 
   /*
+   * Mobile homepage only: denser glass so logo / Log in / hamburger read cleaner.
+   * Cascade: later than desktop landing rule (0.22); scrolled densify still wins
+   * via higher specificity (body.meptrax-landing-page.meptrax-header-scrolled).
+   * Blur stays from the base landing-page header rule.
+   */
+  body.meptrax-landing-page .meptrax-header {
+    background: rgba(255, 255, 255, 0.7);
+  }
+
+  /*
    * Site-shell mobile: same fixed overlay bar as desktop.
    * Brand · Log in · hamburger — no link strip.
    */
@@ -679,11 +702,24 @@ body.meptrax-landing-page .meptrax-front-main {
 
   .meptrax-header .wp-block-navigation__responsive-container.is-menu-open {
     display: flex !important;
-    position: fixed;
-    inset: 0;
-    z-index: 100000;
+    position: fixed !important;
+    /* Viewport-sized units: escape fixed-header containing block (h was header-height only). */
+    top: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    left: 0 !important;
+    width: 100vw !important;
+    width: 100dvw !important;
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: none !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+    z-index: 100000 !important;
     background: #fff !important;
     color: var(--meptrax-navy) !important;
+    box-sizing: border-box;
+    overflow: auto;
   }
 
   /*

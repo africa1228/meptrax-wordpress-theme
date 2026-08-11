@@ -95,8 +95,8 @@ def main() -> int:
         print("MISSING_LOCAL", LOCAL)
         return 1
     style = (LOCAL / "style.css").read_text(encoding="utf-8", errors="replace")
-    if "Version: 1.6.3" not in style:
-        print("LOCAL_STYLE_NOT_1.6.3")
+    if "Version: 1.6.4" not in style:
+        print("LOCAL_STYLE_NOT_1.6.4")
         return 1
 
     creds = load_filezilla_creds()
@@ -189,8 +189,8 @@ def main() -> int:
     # confirm style version via download of first 300 bytes text
     with sftp.open(f"{remote_root}/style.css", "r") as fh:
         head = fh.read(400).decode("utf-8", errors="replace")
-    if "Version: 1.6.2" in head:
-        print("REMOTE_STYLE_VERSION 1.6.2")
+    if "Version: 1.6.4" in head:
+        print("REMOTE_STYLE_VERSION 1.6.4")
     else:
         print("REMOTE_STYLE_VERSION_UNEXPECTED")
         print(head.replace("\n", " | ")[:200])
